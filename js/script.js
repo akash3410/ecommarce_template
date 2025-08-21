@@ -298,3 +298,36 @@ document.querySelectorAll('.modal-thumb').forEach(thumb => {
     thumb.closest('.modal').querySelector('.main-img').src = thumb.src;
   });
 });
+
+// Lens
+const zoom = 2;
+
+// সব zoom-container এর জন্য apply করো
+document.querySelectorAll('.zoom-container').forEach(container => {
+  const lens = container.querySelector('.lens');
+  const image = container.querySelector('img');
+
+  container.addEventListener('mousemove', (e) => {
+    lens.style.display = 'block';
+    lens.style.backgroundImage = `url(${image.src})`;
+    lens.style.backgroundSize = `${image.width * zoom}px ${image.height * zoom}px`;
+
+    const rect = container.getBoundingClientRect();
+    let x = e.clientX - rect.left - lens.offsetWidth / 2;
+    let y = e.clientY - rect.top - lens.offsetHeight / 2;
+
+    if(x < 0) x = 0;
+    if(y < 0) y = 0;
+    if(x > rect.width - lens.offsetWidth) x = rect.width - lens.offsetWidth;
+    if(y > rect.height - lens.offsetHeight) y = rect.height - lens.offsetHeight;
+
+    lens.style.left = x + 'px';
+    lens.style.top = y + 'px';
+
+    lens.style.backgroundPosition = `-${x * zoom}px -${y * zoom}px`;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    lens.style.display = 'none';
+  });
+});

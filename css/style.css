@@ -131,3 +131,11 @@ h1, h2, h3 {
     opacity: 0;
   }
 }
+
+/* Custom animation (card button) */
+.card-hover-bounce {
+  transform: translateY(0);
+}
+.group:hover .card-hover-bounce {
+  transform: translateY(-10px);
+}
