@@ -139,3 +139,28 @@ h1, h2, h3 {
 .group:hover .card-hover-bounce {
   transform: translateY(-10px);
 }
+
+/* Wave Animation */
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-wave {
+  animation: wave 3s ease-in-out infinite;
+}
+.animate-wave-delayed {
+  animation: wave 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
