@@ -1,1 +1,3 @@
-# ecommarce_template
+E-Commarce Templates
+
+Desing using HTML, CSS, Tailwind CSS, JavaScript
