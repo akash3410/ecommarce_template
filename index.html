@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,71 +8,75 @@
   <title>ECommarce — Templates</title>
 
   <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
 
   <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Animate CSS -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
   <!-- My CSS -->
-   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
 
-    <style>
-/* Light beam shape + animation */
-.shine {
-  position: absolute;
-  top: -150%;
-  left: -150%;
-  width: 100%;
-  height: 500%;
-  background: linear-gradient(
-    120deg,
-    rgb(250, 246, 246) 20%,
-    rgba(230, 224, 224, 0) 50%,
-    rgba(248, 246, 246, 0.836) 50%
-  );
-  transform: rotate(45deg) translateX(-100%);
-  opacity: 0;
-  transition: opacity;
-}
+  <style>
+    /* Light beam shape + animation */
+    .shine {
+      position: absolute;
+      top: -150%;
+      left: -150%;
+      width: 100%;
+      height: 500%;
+      background: linear-gradient(120deg,
+          rgb(250, 246, 246) 20%,
+          rgba(230, 224, 224, 0) 50%,
+          rgba(248, 246, 246, 0.836) 50%);
+      transform: rotate(45deg) translateX(-100%);
+      opacity: 0;
+      transition: opacity;
+    }
 
-.group:hover .shine {
-  animation: sweepLight 1.5s ease-in-out forwards;
-  opacity: 1;
-}
+    .group:hover .shine {
+      animation: sweepLight 1.5s ease-in-out forwards;
+      opacity: 1;
+    }
 
-/* Animation path */
-@keyframes sweepLight {
-  0% {
-    transform: rotate(45deg) translateX(-120%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.9;
-  }
-  100% {
-    transform: rotate(45deg) translateX(120%);
-    opacity: 0;
-  }
-}
-</style>
+    /* Animation path */
+    @keyframes sweepLight {
+      0% {
+        transform: rotate(45deg) translateX(-120%);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: rotate(45deg) translateX(120%);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- TOP NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full shadow-md z-50 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+  <nav
+    class="fixed top-0 left-0 w-full shadow-md z-50 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center">
 
-        <!-- Mobile hamburger --> 
+        <!-- Mobile hamburger -->
         <button id="menu-btn" class="md:hidden text-gray-700 p-2">
           <i class="fa-solid fa-bars"></i>
         </button>
@@ -112,25 +117,26 @@
               <button id="desktop-search-btn" class="text-gray-700 hover:text-blue-600 p-1 focus:outline-none">
                 <i class="fa-solid fa-magnifying-glass text-xl mt-1"></i>
               </button>
-    
+
               <!-- expanding search container (desktop) -->
               <!-- initially width 0 on md screens; toggled to w-56 -->
-              <div id="desktop-search" class="hidden md:flex items-center overflow-hidden w-0 transition-all duration-300 absolute right-0 top-full -mt-10">
+              <div id="desktop-search"
+                class="hidden md:flex items-center overflow-hidden w-0 transition-all duration-300 absolute right-0 top-full -mt-10">
                 <form id="desktop-search-form" class="flex items-center w-full">
                   <input id="desktop-search-input" type="text"
-                        class="w-full border border-gray-300 rounded-l px-3 py-2 focus:outline-none"
-                        placeholder="Search..." />
+                    class="w-full border border-gray-300 rounded-l px-3 py-2 focus:outline-none"
+                    placeholder="Search..." />
                   <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-r">Search</button>
                 </form>
               </div>
             </div>
-            
+
             <!-- cart icon -->
             <a href="#" class="text-gray-700 hover:text-blue-600">
               <span class="ms-3 me-2">$ 0</span>
               <i class="fa-solid fa-cart-shopping text-xl"></i>
             </a>
-            
+
             <!-- user icon -->
             <a href="#" class="text-gray-700 hover:text-blue-600">
               <i class="fa-solid fa-user text-xl"></i>
@@ -165,28 +171,40 @@
 
           <!-- dropdown -->
           <div class="relative group">
-            <button class="text-gray-700 hover:text-gray-400 uppercase text-lg text-blue-600 font-semibold">MENS</button>
-            <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded w-80 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
-              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" href="#">Shirts</a>
-              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" href="#">Pants</a>
+            <button
+              class="text-gray-700 hover:text-gray-400 uppercase text-lg text-blue-600 font-semibold">MENS</button>
+            <div
+              class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded w-80 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]"
+                href="#">Shirts</a>
+              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]"
+                href="#">Pants</a>
             </div>
           </div>
 
           <!-- dropdown -->
           <div class="relative group">
-            <button class="text-gray-700 hover:text-gray-400 uppercase text-lg text-blue-600 font-semibold">SUNNAH ESSENTIAL</button>
-            <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded w-80 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
-              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" href="#">Fragrance</a>
-              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" href="#">Caps</a>
+            <button class="text-gray-700 hover:text-gray-400 uppercase text-lg text-blue-600 font-semibold">SUNNAH
+              ESSENTIAL</button>
+            <div
+              class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded w-80 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]"
+                href="#">Fragrance</a>
+              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]"
+                href="#">Caps</a>
             </div>
           </div>
 
           <!-- dropdown -->
           <div class="relative group">
-            <button class="text-gray-700 hover:text-gray-400 uppercase text-lg text-blue-600 font-semibold">ACCESSORIES</button>
-            <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded w-80 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
-              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" href="#">Bags</a>
-              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" href="#">Watches</a>
+            <button
+              class="text-gray-700 hover:text-gray-400 uppercase text-lg text-blue-600 font-semibold">ACCESSORIES</button>
+            <div
+              class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded w-80 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]"
+                href="#">Bags</a>
+              <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]"
+                href="#">Watches</a>
             </div>
           </div>
         </div>
@@ -195,8 +213,10 @@
   </nav>
 
   <!-- MOBILE SLIDE MENU -->
-  <div id="mobile-menu" class="fixed top-0 left-0 w-72 h-full bg-white shadow transform -translate-x-full transition-transform duration-300 z-50 md:hidden rounded-[10px]">
-    <div class="p-4 border-b flex justify-between items-center bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+  <div id="mobile-menu"
+    class="fixed top-0 left-0 w-72 h-full bg-white shadow transform -translate-x-full transition-transform duration-300 z-50 md:hidden rounded-[10px]">
+    <div
+      class="p-4 border-b flex justify-between items-center bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
       <a href="#" class="text-lg font-semibold text-[#006400]">MyLogo</a>
       <button id="close-menu" class="text-lg">✕</button>
     </div>
@@ -235,15 +255,18 @@
   </div>
 
   <!-- MOBILE SEARCH BAR (slide down) -->
-  <div id="mobile-search-bar" class="fixed top-16 left-0 w-full bg-white p-3 shadow-md transform -translate-y-full transition-transform duration-300 z-40 md:hidden">
+  <div id="mobile-search-bar"
+    class="fixed top-16 left-0 w-full bg-white p-3 shadow-md transform -translate-y-full transition-transform duration-300 z-40 md:hidden">
     <form id="mobile-search-form" class="flex gap-2">
-      <input id="mobile-search-input" type="text" placeholder="Search..." class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none" />
+      <input id="mobile-search-input" type="text" placeholder="Search..."
+        class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none" />
       <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
     </form>
   </div>
 
   <!-- BOTTOM NAV (Mobile) -->
-  <div class="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] border-t shadow-md flex justify-around py-2 md:hidden z-50">
+  <div
+    class="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] border-t shadow-md flex justify-around py-2 md:hidden z-50">
     <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
       <i class="fa-regular fa-house text-lg mb-1"></i>
       Home
@@ -270,20 +293,23 @@
 
     <!-- Slider container -->
     <div id="slider" class="flex transition-transform duration-700 ease-in-out w-full mt-16">
-      
+
       <!-- Slide 1 -->
       <div class="w-full flex-shrink-0 relative">
         <img src="img/one.webp" class="w-full h-64 md:h-auto object-cover" />
 
         <!-- Text Content -->
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center bg-black/40">
-          <h2 class="slide-text text-white text-2xl md:text-4xl font-bold opacity-0 translate-y-10 transition-all duration-700 ease-out">
+          <h2
+            class="slide-text text-white text-2xl md:text-4xl font-bold opacity-0 translate-y-10 transition-all duration-700 ease-out">
             Welcome to Our Store
           </h2>
-          <p class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200">
+          <p
+            class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200">
             Best Products at the Best Price
           </p>
-          <button class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
+          <button
+            class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
             Shop Now
           </button>
         </div>
@@ -296,13 +322,16 @@
 
         <!-- Text Content -->
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center bg-black/40">
-          <h2 class="slide-text text-white text-2xl md:text-4xl font-bold opacity-0 translate-y-10 transition-all duration-700 ease-out">
+          <h2
+            class="slide-text text-white text-2xl md:text-4xl font-bold opacity-0 translate-y-10 transition-all duration-700 ease-out">
             New Collection 2025
           </h2>
-          <p class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-100">
+          <p
+            class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-100">
             Trendy & Stylish Products
           </p>
-          <button class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
+          <button
+            class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
             Explore Now
           </button>
         </div>
@@ -315,13 +344,16 @@
 
         <!-- Text Content -->
         <div class="absolute inset-0 flex flex-col items-center justify-center text-center bg-black/40">
-          <h2 class="slide-text text-white text-2xl md:text-4xl font-bold opacity-0 translate-y-10 transition-all duration-700 ease-out">
+          <h2
+            class="slide-text text-white text-2xl md:text-4xl font-bold opacity-0 translate-y-10 transition-all duration-700 ease-out">
             Summer Sale Up To 50%
           </h2>
-          <p class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200">
+          <p
+            class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200">
             Grab Your Favorite Items
           </p>
-          <button class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
+          <button
+            class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
             Shop Sale
           </button>
         </div>
@@ -331,8 +363,10 @@
     </div>
 
     <!-- Navigation buttons -->
-    <button id="prev" class="absolute top-1/2 left-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60">❮</button>
-    <button id="next" class="absolute top-1/2 right-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60">❯</button>
+    <button id="prev"
+      class="absolute top-1/2 left-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60">❮</button>
+    <button id="next"
+      class="absolute top-1/2 right-3 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60">❯</button>
 
     <!-- Dots -->
     <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2">
@@ -388,10 +422,12 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Card 1 -->
-        <a href="#category1" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat4.webp" alt="Card 1" 
-              class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
+        <a href="#category1"
+          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat4.webp" alt="Card 1"
+            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
                       opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
             <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
@@ -399,10 +435,12 @@
         </a>
 
         <!-- Card 2 -->
-        <a href="#category2" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat3.jpeg" alt="Card 2" 
-              class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
+        <a href="#category2"
+          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat3.jpeg" alt="Card 2"
+            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
                       opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
             <h3 class="text-xl font-bold mb-2">Card Title 2</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
@@ -410,10 +448,12 @@
         </a>
 
         <!-- Card 3 -->
-        <a href="#category3" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat2.jpeg" alt="Card 3" 
-              class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
+        <a href="#category3"
+          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat2.jpeg" alt="Card 3"
+            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
                       opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
             <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
@@ -421,30 +461,36 @@
         </a>
 
         <!-- Card 3 -->
-        <a href="#category3" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat1.jpg" alt="Card 3" 
-              class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
+        <a href="#category3"
+          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat1.jpg" alt="Card 3"
+            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
                       opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
             <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
         <!-- Card 3 -->
-        <a href="#category3" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat1.jpg" alt="Card 3" 
-              class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
+        <a href="#category3"
+          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat1.jpg" alt="Card 3"
+            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
                       opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
             <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
         <!-- Card 3 -->
-        <a href="#category3" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat1.jpg" alt="Card 3" 
-              class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
+        <a href="#category3"
+          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat1.jpg" alt="Card 3"
+            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
+          <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
                       opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
             <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
@@ -458,140 +504,149 @@
   <section class="mirror-gradient-90 px-4 sm:px-6 lg:px-10 lg:py-12 py-8">
     <div class="flex items-center justify-between">
       <h1 class="text-3xl text-bold">New Arrival</h1>
-      <button class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">View All</button>
+      <button
+        class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">View
+        All</button>
     </div>
 
-    <div class="relative md:max-w-full max-w-6xl mt-10 mx-auto">
+    <div class="relative md:max-w-full max-w-6xl mt-10 mx-auto" id="naSliderWrapper">
       <!-- Slider Wrapper -->
       <div class="overflow-hidden">
         <div id="sliderTrack" class="flex gap-8 transition-transform duration-500">
 
-            <!-- ===== CARD 1 ===== -->
-            <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
-              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
-                      <i data-feather="eye"></i>
-                  </button>
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                  </button>
-                </div>
-                <div class="p-4">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-5">$129.99</p>
-                  <div class="flex justify-between items-center mt-4">
-                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  </div>
+          <!-- ===== CARD 1 ===== -->
+          <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
+            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+              <img src="img/na2.webp"
+                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
+                  <i data-feather="eye"></i>
+                </button>
+                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
+                <p class="text-base text-black-100 my-5">$129.99</p>
+                <div class="flex justify-between items-center mt-4">
+                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- ===== CARD 2 ===== -->
-            <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
-              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
-                      <i data-feather="eye"></i>
-                  </button>
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                  </button>
-                </div>
-                <div class="p-4">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-5">$129.99</p>
-                  <div class="flex justify-between items-center mt-4">
-                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  </div>
+          <!-- ===== CARD 2 ===== -->
+          <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
+            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+              <img src="img/na2.webp"
+                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                  <i data-feather="eye"></i>
+                </button>
+                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
+                <p class="text-base text-black-100 my-5">$129.99</p>
+                <div class="flex justify-between items-center mt-4">
+                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- ===== CARD 3 ===== -->
-            <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
-              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal3">
-                      <i data-feather="eye"></i>
-                  </button>
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                  </button>
-                </div>
-                <div class="p-4">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-5">$129.99</p>
-                  <div class="flex justify-between items-center mt-4">
-                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  </div>
+          <!-- ===== CARD 3 ===== -->
+          <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
+            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+              <img src="img/na2.webp"
+                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal3">
+                  <i data-feather="eye"></i>
+                </button>
+                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
+                <p class="text-base text-black-100 my-5">$129.99</p>
+                <div class="flex justify-between items-center mt-4">
+                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- ===== CARD 4 ===== -->
-            <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
-              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal4">
-                      <i data-feather="eye"></i>
-                  </button>
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                  </button>
-                </div>
-                <div class="p-4">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-5">$129.99</p>
-                  <div class="flex justify-between items-center mt-4">
-                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  </div>
+          <!-- ===== CARD 4 ===== -->
+          <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
+            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+              <img src="img/na2.webp"
+                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal4">
+                  <i data-feather="eye"></i>
+                </button>
+                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
+                <p class="text-base text-black-100 my-5">$129.99</p>
+                <div class="flex justify-between items-center mt-4">
+                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- ===== CARD 5 ===== -->
-            <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
-              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal5">
-                      <i data-feather="eye"></i>
-                  </button>
-                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                  </button>
-                </div>
-                <div class="p-4">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-5">$129.99</p>
-                  <div class="flex justify-between items-center mt-4">
-                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  </div>
+          <!-- ===== CARD 5 ===== -->
+          <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/4">
+            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+              <img src="img/na2.webp"
+                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal5">
+                  <i data-feather="eye"></i>
+                </button>
+                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              <div class="p-4">
+                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A]">Premium Shoes</h3>
+                <p class="text-base text-black-100 my-5">$129.99</p>
+                <div class="flex justify-between items-center mt-4">
+                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
                 </div>
               </div>
             </div>
+          </div>
 
         </div>
       </div>
 
       <!-- Navigation Buttons -->
-      <button id="pre" class="absolute top-1/2 left-5 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700">‹</button>
-      <button id="nex" class="absolute top-1/2 right-5 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700">›</button>
+      <button id="naprev"
+        class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">‹</button>
+      <button id="nanext"
+        class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">›</button>
     </div>
 
 
@@ -626,10 +681,22 @@
               <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
                 <div class="flex space-x-2">
-                  <label><input type="radio" name="size1" value="M" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M</div></label>
-                  <label><input type="radio" name="size1" value="L" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L</div></label>
-                  <label><input type="radio" name="size1" value="XL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XL</div></label>
-                  <label><input type="radio" name="size1" value="XXL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XXL</div></label>
+                  <label><input type="radio" name="size1" value="M" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="L" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XL</div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XXL</div>
+                  </label>
                 </div>
               </div>
             </div>
@@ -666,26 +733,38 @@
               <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
               <p class="text-base text-[#00AE7A] mb-4">$129.99</p>
               <div class="mb-4 flex items-center space-x-2">
-              <p class="text-sm font-medium text-gray-700">Color: Black</p>
-              <div class="w-4 h-4 bg-black rounded-full"></div>
+                <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                <div class="w-4 h-4 bg-black rounded-full"></div>
               </div>
               <!-- Sizes -->
               <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
                 <div class="flex space-x-2">
-                  <label><input type="radio" name="size1" value="M" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M</div></label>
-                  <label><input type="radio" name="size1" value="L" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L</div></label>
-                  <label><input type="radio" name="size1" value="XL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XL</div></label>
-                  <label><input type="radio" name="size1" value="XXL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XXL</div></label>
+                  <label><input type="radio" name="size1" value="M" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="L" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XL</div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XXL</div>
+                  </label>
                 </div>
               </div>
             </div>
             <div class="flex space-x-3 mt-4 md:mt-0">
-                <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
-                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                  <i data-feather="heart"></i>
-                </button>
+              <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+              <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
+              <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                <i data-feather="heart"></i>
+              </button>
             </div>
             <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
           </div>
@@ -713,26 +792,38 @@
               <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
               <p class="text-base text-[#00AE7A] mb-4">$129.99</p>
               <div class="mb-4 flex items-center space-x-2">
-              <p class="text-sm font-medium text-gray-700">Color: Black</p>
-              <div class="w-4 h-4 bg-black rounded-full"></div>
+                <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                <div class="w-4 h-4 bg-black rounded-full"></div>
               </div>
               <!-- Sizes -->
               <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
                 <div class="flex space-x-2">
-                  <label><input type="radio" name="size1" value="M" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M</div></label>
-                  <label><input type="radio" name="size1" value="L" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L</div></label>
-                  <label><input type="radio" name="size1" value="XL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XL</div></label>
-                  <label><input type="radio" name="size1" value="XXL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XXL</div></label>
+                  <label><input type="radio" name="size1" value="M" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="L" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XL</div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XXL</div>
+                  </label>
                 </div>
               </div>
             </div>
             <div class="flex space-x-3 mt-4 md:mt-0">
-                <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
-                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                  <i data-feather="heart"></i>
-                </button>
+              <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+              <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
+              <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                <i data-feather="heart"></i>
+              </button>
             </div>
             <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
           </div>
@@ -760,26 +851,38 @@
               <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
               <p class="text-base text-[#00AE7A] mb-4">$129.99</p>
               <div class="mb-4 flex items-center space-x-2">
-              <p class="text-sm font-medium text-gray-700">Color: Black</p>
-              <div class="w-4 h-4 bg-black rounded-full"></div>
+                <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                <div class="w-4 h-4 bg-black rounded-full"></div>
               </div>
               <!-- Sizes -->
               <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
                 <div class="flex space-x-2">
-                  <label><input type="radio" name="size1" value="M" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M</div></label>
-                  <label><input type="radio" name="size1" value="L" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L</div></label>
-                  <label><input type="radio" name="size1" value="XL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XL</div></label>
-                  <label><input type="radio" name="size1" value="XXL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XXL</div></label>
+                  <label><input type="radio" name="size1" value="M" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="L" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XL</div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XXL</div>
+                  </label>
                 </div>
               </div>
             </div>
             <div class="flex space-x-3 mt-4 md:mt-0">
-                <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
-                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                  <i data-feather="heart"></i>
-                </button>
+              <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+              <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
+              <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                <i data-feather="heart"></i>
+              </button>
             </div>
             <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
           </div>
@@ -807,26 +910,38 @@
               <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
               <p class="text-base text-[#00AE7A] mb-4">$129.99</p>
               <div class="mb-4 flex items-center space-x-2">
-              <p class="text-sm font-medium text-gray-700">Color: Black</p>
-              <div class="w-4 h-4 bg-black rounded-full"></div>
+                <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                <div class="w-4 h-4 bg-black rounded-full"></div>
               </div>
               <!-- Sizes -->
               <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
                 <div class="flex space-x-2">
-                  <label><input type="radio" name="size1" value="M" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M</div></label>
-                  <label><input type="radio" name="size1" value="L" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L</div></label>
-                  <label><input type="radio" name="size1" value="XL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XL</div></label>
-                  <label><input type="radio" name="size1" value="XXL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XXL</div></label>
+                  <label><input type="radio" name="size1" value="M" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="L" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                    </div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XL</div>
+                  </label>
+                  <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                    <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                      XXL</div>
+                  </label>
                 </div>
               </div>
             </div>
             <div class="flex space-x-3 mt-4 md:mt-0">
-                <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
-                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                  <i data-feather="heart"></i>
-                </button>
+              <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+              <button class="flex-1 px-4 py-2 text-white rounded bg-[#008f63] hover:bg-[#00AE7A]">Buy Now</button>
+              <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                <i data-feather="heart"></i>
+              </button>
             </div>
             <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
           </div>
@@ -840,7 +955,9 @@
     <!-- Hedings -->
     <div class="flex items-center justify-between">
       <h1 class="text-3xl text-bold">Best Selling</h1>
-      <button class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">View All</button>
+      <button
+        class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">View
+        All</button>
     </div>
 
     <!-- Main Grid -->
@@ -848,7 +965,8 @@
       <!-- Left Span -->
       <div class="relative group lg:col-span-1 rounded border-r-2 border-gray-300 overflow-hidden cursor-pointer hidden lg:block">
         <!-- image -->
-        <img src="img/na1.webp" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125">
+        <img src="img/na1.webp"
+          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125">
 
         <!-- diagonal light -->
         <div class="absolute inset-0 overflow-hidden">
@@ -858,7 +976,7 @@
 
       <!-- Right Span -->
       <div class="lg:col-span-3">
-        <div class="relative md:max-w-full max-w-6xl mx-auto">
+        <div class="relative md:max-w-full max-w-6xl mx-auto" id="bssliderWrapper">
           <!-- Slider Wrapper -->
           <div class="overflow-hidden">
             <div id="bsSliderTrack" class="flex gap-8 transition-transform duration-500">
@@ -866,14 +984,18 @@
               <!-- ===== CARD 1 ===== -->
               <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/3">
                 <div class="relative bg-white shadow-lg rounded overflow-hidden group cursor-pointer">
-                  <img src="img/na2.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                  <img src="img/na1.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                  <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="bsmodal1">
-                        <i data-feather="eye"></i>
+                  <img src="img/na2.webp"
+                    class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                  <img src="img/na1.webp"
+                    class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                  <div
+                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal"
+                      data-target="bsmodal1">
+                      <i data-feather="eye"></i>
                     </button>
                     <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                        <i data-feather="heart"></i>
+                      <i data-feather="heart"></i>
                     </button>
                   </div>
                   <div class="p-4">
@@ -890,14 +1012,18 @@
               <!-- ===== CARD 2 ===== -->
               <div class="flex-shrink-0 w-80 sm:w-1/2 md:w-1/2 lg:w-1/3">
                 <div class="relative bg-white shadow-lg rounded overflow-hidden group cursor-pointer">
-                  <img src="img/na2.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                  <img src="img/na1.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-                  <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="bsmodal2">
-                        <i data-feather="eye"></i>
+                  <img src="img/na2.webp"
+                    class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                  <img src="img/na1.webp"
+                    class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                  <div
+                    class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal"
+                      data-target="bsmodal2">
+                      <i data-feather="eye"></i>
                     </button>
                     <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                        <i data-feather="heart"></i>
+                      <i data-feather="heart"></i>
                     </button>
                   </div>
                   <div class="p-4">
@@ -915,10 +1041,11 @@
           </div>
 
           <!-- Navigation Buttons -->
-          <button id="bsprev" class="absolute top-1/2 left-5 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700">‹</button>
-          <button id="bsnext" class="absolute top-1/2 right-5 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700">›</button>
+          <button id="bsprev" class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">‹
+          </button>
+          <button id="bsnext" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">›
+          </button>
         </div>
-
 
         <!-- ===== MODALS placed outside slider (fixed center) ===== -->
         <div id="bsmodal1" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
@@ -951,10 +1078,29 @@
                   <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
                     <div class="flex space-x-2">
-                      <label><input type="radio" name="size1" value="M" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M</div></label>
-                      <label><input type="radio" name="size1" value="L" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L</div></label>
-                      <label><input type="radio" name="size1" value="XL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XL</div></label>
-                      <label><input type="radio" name="size1" value="XXL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XXL</div></label>
+                      <label><input type="radio" name="size1" value="M" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          M
+                        </div>
+                      </label>
+                      <label>
+                        <input type="radio" name="size1" value="L" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          L
+                        </div>
+                      </label>
+                      <label>
+                        <input type="radio" name="size1" value="XL" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          XL
+                        </div>
+                      </label>
+                      <label>
+                        <input type="radio" name="size1" value="XXL" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          XXL
+                        </div>
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -972,7 +1118,7 @@
         </div>
 
         <!-- ===== MODALS placed outside slider (fixed center) ===== -->
-        <div id="bsmodal1" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+        <div id="bsmodal2" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
           <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
             <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1002,10 +1148,29 @@
                   <div class="mb-4">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
                     <div class="flex space-x-2">
-                      <label><input type="radio" name="size1" value="M" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M</div></label>
-                      <label><input type="radio" name="size1" value="L" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L</div></label>
-                      <label><input type="radio" name="size1" value="XL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XL</div></label>
-                      <label><input type="radio" name="size1" value="XXL" class="hidden peer"><div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">XXL</div></label>
+                      <label><input type="radio" name="size1" value="M" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          M
+                        </div>
+                      </label>
+                      <label>
+                        <input type="radio" name="size1" value="L" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          L
+                        </div>
+                      </label>
+                      <label>
+                        <input type="radio" name="size1" value="XL" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          XL
+                        </div>
+                      </label>
+                      <label>
+                        <input type="radio" name="size1" value="XXL" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          XXL
+                        </div>
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -1025,8 +1190,8 @@
     </div>
   </section>
 
-<!-- My JS -->
-<script src="js/script.js"></script>
+  <!-- My JS -->
+  <script src="js/script.js"></script>
 
 </body>
 
