@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Card + Modal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-gray-100">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- 1 -->
+    <div class="max-w-sm mx-auto mt-10" x-data="{ open: false, mainImg: 'img/na1.webp', images: ['img/na1.webp','img/na2.webp','img/na4.webp','img/na5.webp','img/na6.webp'] }">
+      <!-- Card 1-->
+      <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+        
+        <!-- Default Image -->
+        <img :src="images[0]" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+
+        <!-- Hover Image -->
+        <img :src="images[1]" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+
+        <!-- Hover Icons -->
+        <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+          <button @click="open = true" class="p-2 bg-white rounded-full shadow hover:bg-gray-200">
+            <i data-feather="eye"></i>
+          </button>
+          <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+            <i data-feather="heart"></i>
+          </button>
+        </div>
+
+        <!-- Info -->
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Premium Shoes</h3>
+          <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+          <div class="flex justify-between items-center mt-4">
+            <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+            <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="open" x-transition 
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        
+        <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-6xl p-6 relative" @click.away="open = false">
+          
+          <!-- Close -->
+          <button @click="open = false" class="absolute top-4 right-4 text-gray-600 hover:text-black">
+            ✕
+          </button>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Left -->
+            <div class="flex">
+              <!-- Thumbnails -->
+              <div class="flex flex-col space-y-2 mr-4">
+                <template x-for="(img, index) in images" :key="index">
+                  <img :src="img" @click="mainImg = img" 
+                      class="w-16 h-16 object-cover border rounded cursor-pointer hover:opacity-80">
+                </template>
+              </div>
+              
+              <!-- Main Image with Zoom -->
+              <div class="relative overflow-hidden">
+                <img :src="mainImg" class="w-full h-96 object-cover transition-transform" x-ref="zoomImg">
+                <div class="absolute inset-0 pointer-events-none"
+                    @mousemove="e => {
+                      let img = $refs.zoomImg;
+                      let rect = img.getBoundingClientRect();
+                      let x = ((e.clientX - rect.left) / rect.width) * 100;
+                      let y = ((e.clientY - rect.top) / rect.height) * 100;
+                      img.style.transformOrigin = `${x}% ${y}%`;
+                      img.style.transform = 'scale(1.5)';
+                    }"
+                    @mouseleave="$refs.zoomImg.style.transform = 'scale(1)'">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right -->
+            <div class="flex flex-col justify-between">
+              <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+                
+                <!-- Color -->
+                <div class="mb-4 flex items-center space-x-2">
+                  <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                  <div class="w-4 h-4 bg-black rounded-full"></div>
+                </div>
+                
+                <!-- Size -->
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                  <div class="flex space-x-2">
+                    <template x-for="size in ['M','L','XL','XXL']" :key="size">
+                      <label>
+                        <input type="radio" name="size" :value="size" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          <span x-text="size"></span>
+                        </div>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Buttons -->
+              <div class="flex space-x-3">
+                <button class="flex-1 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+                <button class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Order Now</button>
+                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              
+              <!-- Categories -->
+              <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="max-w-sm mx-auto mt-10" x-data="{ open: false, mainImg: 'img/na1.webp', images: ['img/na1.webp','img/na2.webp','img/na4.webp','img/na5.webp','img/na6.webp'] }">
+      <!-- Card 1-->
+      <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+        
+        <!-- Default Image -->
+        <img :src="images[0]" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+
+        <!-- Hover Image -->
+        <img :src="images[1]" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+
+        <!-- Hover Icons -->
+        <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+          <button @click="open = true" class="p-2 bg-white rounded-full shadow hover:bg-gray-200">
+            <i data-feather="eye"></i>
+          </button>
+          <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+            <i data-feather="heart"></i>
+          </button>
+        </div>
+
+        <!-- Info -->
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Premium Shoes</h3>
+          <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+          <div class="flex justify-between items-center mt-4">
+            <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+            <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="open" x-transition 
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        
+        <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-6xl p-6 relative" @click.away="open = false">
+          
+          <!-- Close -->
+          <button @click="open = false" class="absolute top-4 right-4 text-gray-600 hover:text-black">
+            ✕
+          </button>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Left -->
+            <div class="flex">
+              <!-- Thumbnails -->
+              <div class="flex flex-col space-y-2 mr-4">
+                <template x-for="(img, index) in images" :key="index">
+                  <img :src="img" @click="mainImg = img" 
+                      class="w-16 h-16 object-cover border rounded cursor-pointer hover:opacity-80">
+                </template>
+              </div>
+              
+              <!-- Main Image with Zoom -->
+              <div class="relative overflow-hidden">
+                <img :src="mainImg" class="w-full h-96 object-cover transition-transform" x-ref="zoomImg">
+                <div class="absolute inset-0 pointer-events-none"
+                    @mousemove="e => {
+                      let img = $refs.zoomImg;
+                      let rect = img.getBoundingClientRect();
+                      let x = ((e.clientX - rect.left) / rect.width) * 100;
+                      let y = ((e.clientY - rect.top) / rect.height) * 100;
+                      img.style.transformOrigin = `${x}% ${y}%`;
+                      img.style.transform = 'scale(1.5)';
+                    }"
+                    @mouseleave="$refs.zoomImg.style.transform = 'scale(1)'">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right -->
+            <div class="flex flex-col justify-between">
+              <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+                
+                <!-- Color -->
+                <div class="mb-4 flex items-center space-x-2">
+                  <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                  <div class="w-4 h-4 bg-black rounded-full"></div>
+                </div>
+                
+                <!-- Size -->
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                  <div class="flex space-x-2">
+                    <template x-for="size in ['M','L','XL','XXL']" :key="size">
+                      <label>
+                        <input type="radio" name="size" :value="size" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          <span x-text="size"></span>
+                        </div>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Buttons -->
+              <div class="flex space-x-3">
+                <button class="flex-1 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+                <button class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Order Now</button>
+                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              
+              <!-- Categories -->
+              <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="max-w-sm mx-auto mt-10" x-data="{ open: false, mainImg: 'img/na1.webp', images: ['img/na1.webp','img/na2.webp','img/na4.webp','img/na5.webp','img/na6.webp'] }">
+      <!-- Card 1-->
+      <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+        
+        <!-- Default Image -->
+        <img :src="images[0]" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+
+        <!-- Hover Image -->
+        <img :src="images[1]" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+
+        <!-- Hover Icons -->
+        <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+          <button @click="open = true" class="p-2 bg-white rounded-full shadow hover:bg-gray-200">
+            <i data-feather="eye"></i>
+          </button>
+          <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+            <i data-feather="heart"></i>
+          </button>
+        </div>
+
+        <!-- Info -->
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Premium Shoes</h3>
+          <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+          <div class="flex justify-between items-center mt-4">
+            <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+            <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="open" x-transition 
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        
+        <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-6xl p-6 relative" @click.away="open = false">
+          
+          <!-- Close -->
+          <button @click="open = false" class="absolute top-4 right-4 text-gray-600 hover:text-black">
+            ✕
+          </button>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Left -->
+            <div class="flex">
+              <!-- Thumbnails -->
+              <div class="flex flex-col space-y-2 mr-4">
+                <template x-for="(img, index) in images" :key="index">
+                  <img :src="img" @click="mainImg = img" 
+                      class="w-16 h-16 object-cover border rounded cursor-pointer hover:opacity-80">
+                </template>
+              </div>
+              
+              <!-- Main Image with Zoom -->
+              <div class="relative overflow-hidden">
+                <img :src="mainImg" class="w-full h-96 object-cover transition-transform" x-ref="zoomImg">
+                <div class="absolute inset-0 pointer-events-none"
+                    @mousemove="e => {
+                      let img = $refs.zoomImg;
+                      let rect = img.getBoundingClientRect();
+                      let x = ((e.clientX - rect.left) / rect.width) * 100;
+                      let y = ((e.clientY - rect.top) / rect.height) * 100;
+                      img.style.transformOrigin = `${x}% ${y}%`;
+                      img.style.transform = 'scale(1.5)';
+                    }"
+                    @mouseleave="$refs.zoomImg.style.transform = 'scale(1)'">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right -->
+            <div class="flex flex-col justify-between">
+              <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+                
+                <!-- Color -->
+                <div class="mb-4 flex items-center space-x-2">
+                  <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                  <div class="w-4 h-4 bg-black rounded-full"></div>
+                </div>
+                
+                <!-- Size -->
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                  <div class="flex space-x-2">
+                    <template x-for="size in ['M','L','XL','XXL']" :key="size">
+                      <label>
+                        <input type="radio" name="size" :value="size" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          <span x-text="size"></span>
+                        </div>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Buttons -->
+              <div class="flex space-x-3">
+                <button class="flex-1 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+                <button class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Order Now</button>
+                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              
+              <!-- Categories -->
+              <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="max-w-sm mx-auto mt-10" x-data="{ open: false, mainImg: 'img/na1.webp', images: ['img/na1.webp','img/na2.webp','img/na4.webp','img/na5.webp','img/na6.webp'] }">
+      <!-- Card 1-->
+      <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+        
+        <!-- Default Image -->
+        <img :src="images[0]" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+
+        <!-- Hover Image -->
+        <img :src="images[1]" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+
+        <!-- Hover Icons -->
+        <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+          <button @click="open = true" class="p-2 bg-white rounded-full shadow hover:bg-gray-200">
+            <i data-feather="eye"></i>
+          </button>
+          <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+            <i data-feather="heart"></i>
+          </button>
+        </div>
+
+        <!-- Info -->
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Premium Shoes</h3>
+          <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+          <div class="flex justify-between items-center mt-4">
+            <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+            <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="open" x-transition 
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        
+        <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-6xl p-6 relative" @click.away="open = false">
+          
+          <!-- Close -->
+          <button @click="open = false" class="absolute top-4 right-4 text-gray-600 hover:text-black">
+            ✕
+          </button>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Left -->
+            <div class="flex">
+              <!-- Thumbnails -->
+              <div class="flex flex-col space-y-2 mr-4">
+                <template x-for="(img, index) in images" :key="index">
+                  <img :src="img" @click="mainImg = img" 
+                      class="w-16 h-16 object-cover border rounded cursor-pointer hover:opacity-80">
+                </template>
+              </div>
+              
+              <!-- Main Image with Zoom -->
+              <div class="relative overflow-hidden">
+                <img :src="mainImg" class="w-full h-96 object-cover transition-transform" x-ref="zoomImg">
+                <div class="absolute inset-0 pointer-events-none"
+                    @mousemove="e => {
+                      let img = $refs.zoomImg;
+                      let rect = img.getBoundingClientRect();
+                      let x = ((e.clientX - rect.left) / rect.width) * 100;
+                      let y = ((e.clientY - rect.top) / rect.height) * 100;
+                      img.style.transformOrigin = `${x}% ${y}%`;
+                      img.style.transform = 'scale(1.5)';
+                    }"
+                    @mouseleave="$refs.zoomImg.style.transform = 'scale(1)'">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right -->
+            <div class="flex flex-col justify-between">
+              <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+                
+                <!-- Color -->
+                <div class="mb-4 flex items-center space-x-2">
+                  <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                  <div class="w-4 h-4 bg-black rounded-full"></div>
+                </div>
+                
+                <!-- Size -->
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                  <div class="flex space-x-2">
+                    <template x-for="size in ['M','L','XL','XXL']" :key="size">
+                      <label>
+                        <input type="radio" name="size" :value="size" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          <span x-text="size"></span>
+                        </div>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Buttons -->
+              <div class="flex space-x-3">
+                <button class="flex-1 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+                <button class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Order Now</button>
+                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              
+              <!-- Categories -->
+              <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="max-w-sm mx-auto mt-10" x-data="{ open: false, mainImg: 'img/na1.webp', images: ['img/na1.webp','img/na2.webp','img/na4.webp','img/na5.webp','img/na6.webp'] }">
+      <!-- Card 1-->
+      <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+        
+        <!-- Default Image -->
+        <img :src="images[0]" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+
+        <!-- Hover Image -->
+        <img :src="images[1]" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+
+        <!-- Hover Icons -->
+        <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+          <button @click="open = true" class="p-2 bg-white rounded-full shadow hover:bg-gray-200">
+            <i data-feather="eye"></i>
+          </button>
+          <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+            <i data-feather="heart"></i>
+          </button>
+        </div>
+
+        <!-- Info -->
+        <div class="p-4">
+          <h3 class="text-lg font-bold text-gray-800">Premium Shoes</h3>
+          <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+          <div class="flex justify-between items-center mt-4">
+            <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+            <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div x-show="open" x-transition 
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        
+        <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-6xl p-6 relative" @click.away="open = false">
+          
+          <!-- Close -->
+          <button @click="open = false" class="absolute top-4 right-4 text-gray-600 hover:text-black">
+            ✕
+          </button>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Left -->
+            <div class="flex">
+              <!-- Thumbnails -->
+              <div class="flex flex-col space-y-2 mr-4">
+                <template x-for="(img, index) in images" :key="index">
+                  <img :src="img" @click="mainImg = img" 
+                      class="w-16 h-16 object-cover border rounded cursor-pointer hover:opacity-80">
+                </template>
+              </div>
+              
+              <!-- Main Image with Zoom -->
+              <div class="relative overflow-hidden">
+                <img :src="mainImg" class="w-full h-96 object-cover transition-transform" x-ref="zoomImg">
+                <div class="absolute inset-0 pointer-events-none"
+                    @mousemove="e => {
+                      let img = $refs.zoomImg;
+                      let rect = img.getBoundingClientRect();
+                      let x = ((e.clientX - rect.left) / rect.width) * 100;
+                      let y = ((e.clientY - rect.top) / rect.height) * 100;
+                      img.style.transformOrigin = `${x}% ${y}%`;
+                      img.style.transform = 'scale(1.5)';
+                    }"
+                    @mouseleave="$refs.zoomImg.style.transform = 'scale(1)'">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Right -->
+            <div class="flex flex-col justify-between">
+              <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                <p class="text-xl font-semibold text-green-600 mb-4">$129.99</p>
+                
+                <!-- Color -->
+                <div class="mb-4 flex items-center space-x-2">
+                  <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                  <div class="w-4 h-4 bg-black rounded-full"></div>
+                </div>
+                
+                <!-- Size -->
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                  <div class="flex space-x-2">
+                    <template x-for="size in ['M','L','XL','XXL']" :key="size">
+                      <label>
+                        <input type="radio" name="size" :value="size" class="hidden peer">
+                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                          <span x-text="size"></span>
+                        </div>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Buttons -->
+              <div class="flex space-x-3">
+                <button class="flex-1 px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Add to Cart</button>
+                <button class="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-500">Order Now</button>
+                <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                  <i data-feather="heart"></i>
+                </button>
+              </div>
+              
+              <!-- Categories -->
+              <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  feather.replace();
+</script>
+</body>
+</html>
