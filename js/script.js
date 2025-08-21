@@ -196,13 +196,13 @@ cards.forEach(card => {
 });
 
 
-// New Arrivals
+// New Arrival Slider functionality
 feather.replace();
 
-// Slider functionality
+const naSliderWrapper = document.getElementById('naSliderWrapper');
 const track = document.getElementById('sliderTrack');
-const prev = document.getElementById('pre');
-const next = document.getElementById('nex');
+const prev = document.getElementById('naprev');
+const next = document.getElementById('nanext');
 let currentIndex = 0;
 
 function updateSlider() {
@@ -220,6 +220,63 @@ prev.addEventListener('click', () => {
   updateSlider();
 });
 window.addEventListener('resize', updateSlider);
+
+// Show buttons on slider hover (New Arrival)
+naSliderWrapper.addEventListener('mouseenter', () => {
+  prev.classList.remove('-translate-x-10', 'opacity-0');
+  prev.classList.add('translate-x-5', 'opacity-100');
+
+  next.classList.remove('translate-x-10', 'opacity-0');
+  next.classList.add('-translate-x-5', 'opacity-100');
+});
+
+naSliderWrapper.addEventListener('mouseleave', () => {
+  prev.classList.add('-translate-x-10', 'opacity-0');
+  prev.classList.remove('translate-x-5', 'opacity-100');
+
+  next.classList.add('translate-x-10', 'opacity-0');
+  next.classList.remove('-translate-x-5', 'opacity-100');
+});
+
+// Best Sell Slider functionality
+const bssliderWrapper = document.getElementById('bssliderWrapper');
+const bstrack = document.getElementById('bsSliderTrack');
+const bsprev = document.getElementById('bsprev');
+const bsnext = document.getElementById('bsnext');
+let bscurrentIndex = 0;
+
+function bsupdateSlider() {
+  const card = bstrack.children[0];
+  const cardWidth = card.offsetWidth + parseInt(getComputedStyle(card).marginRight);
+  bstrack.style.transform = `translateX(-${bscurrentIndex * cardWidth}px)`;
+}
+
+bsnext.addEventListener('click', () => {
+  if (bscurrentIndex < bstrack.children.length - 1) bscurrentIndex++;
+  bsupdateSlider();
+});
+bsprev.addEventListener('click', () => {
+  if (bscurrentIndex > 0) bscurrentIndex--;
+  bsupdateSlider();
+});
+window.addEventListener('resize', bsupdateSlider);
+
+// Show buttons on slider hover (Best Sell)
+bssliderWrapper.addEventListener('mouseenter', () => {
+  bsprev.classList.remove('-translate-x-10', 'opacity-0');
+  bsprev.classList.add('translate-x-5', 'opacity-100');
+
+  bsnext.classList.remove('translate-x-10', 'opacity-0');
+  bsnext.classList.add('-translate-x-5', 'opacity-100');
+});
+
+bssliderWrapper.addEventListener('mouseleave', () => {
+  bsprev.classList.add('-translate-x-10', 'opacity-0');
+  bsprev.classList.remove('translate-x-5', 'opacity-100');
+
+  bsnext.classList.add('translate-x-10', 'opacity-0');
+  bsnext.classList.remove('-translate-x-5', 'opacity-100');
+});
 
 // Modal functionality
 document.querySelectorAll('.open-modal').forEach(btn => {
