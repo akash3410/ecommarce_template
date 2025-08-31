@@ -1,5 +1,5 @@
 body {
-      font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3 {
@@ -163,4 +163,8 @@ h1, h2, h3 {
 .animate-float-delayed {
   animation: float 6s ease-in-out infinite;
   animation-delay: 3s;
+}
+
+html, body {
+  overflow-x: hidden;
 }

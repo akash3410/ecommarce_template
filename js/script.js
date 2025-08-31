@@ -309,3 +309,47 @@ document.querySelectorAll('.zoom-container').forEach(container => {
     lens.style.display = 'none';
   });
 });
+
+// Scroll Button (Go to top)
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+const navbar = document.querySelector("nav");
+const footer = document.querySelector("footer");
+
+window.addEventListener("scroll", function() {
+  const footerTop = footer.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+  const width = this.window.innerWidth;
+
+  // যদি footer দেখা যায় → button আসবে + navbar hide হবে
+  if (footerTop < windowHeight) {
+    scrollTopBtn.style.display = "block";
+    if (navbar  && width >= 768) navbar.style.display = "none";
+  } else {
+    scrollTopBtn.style.display = "none";
+    if (navbar) navbar.style.display = "block";
+  }
+});
+
+// Smooth scroll to top
+scrollTopBtn.addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+
+  
+// Cart Sidebar
+const cartBtn = document.getElementById("myCartBtn");
+const cartSidebar = document.getElementById("cartSidebar");
+const closeCart = document.getElementById("closeCart");
+
+// Open sidebar
+cartBtn.addEventListener("click", function() {
+  cartSidebar.classList.remove("translate-x-full");
+  cartSidebar.classList.add("translate-x-0");
+});
+
+// Close sidebar
+closeCart.addEventListener("click", function() {
+  cartSidebar.classList.remove("translate-x-0");
+  cartSidebar.classList.add("translate-x-full");
+});
