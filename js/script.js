@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // ---------------- Optional: resize fix ----------------
+  // ---------------- resize fix ----------------
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 768) {
       mobileMenu?.classList.add('-translate-x-full');
@@ -260,3 +260,92 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 200); // 200ms delay, adjust as needed
 });
 
+
+// ================= New Arrival Slider =================
+const sliderTrack = document.getElementById("sliderTrack");
+const naPrev = document.getElementById("naprev");
+const naNext = document.getElementById("nanext");
+
+let currentIndex = 0;
+const cardWidth = 320 + 32; // card width (w-80 ≈ 320px) + gap-8 (32px)
+const totalCards = sliderTrack ? sliderTrack.children.length : 0;
+
+function updateSlider() {
+  if (sliderTrack) {
+    sliderTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+}
+
+// Next button
+naNext?.addEventListener("click", () => {
+  if (currentIndex < totalCards - 1) {
+    currentIndex++;
+    updateSlider();
+  }
+});
+
+// Previous button
+naPrev?.addEventListener("click", () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlider();
+  }
+});
+
+// Hover এ button show/hide
+const naWrapper = document.getElementById("naSliderWrapper");
+naWrapper?.addEventListener("mouseenter", () => {
+  naPrev?.classList.remove("opacity-0", "-translate-x-10");
+  naNext?.classList.remove("opacity-0", "translate-x-10");
+});
+naWrapper?.addEventListener("mouseleave", () => {
+  naPrev?.classList.add("opacity-0", "-translate-x-10");
+  naNext?.classList.add("opacity-0", "translate-x-10");
+});
+
+
+// ================= Reusable Slider Function =================
+function initSlider(wrapperId, trackId, prevId, nextId) {
+  const wrapper = document.getElementById(wrapperId);
+  const track = document.getElementById(trackId);
+  const prev = document.getElementById(prevId);
+  const next = document.getElementById(nextId);
+
+  if (!wrapper || !track) return;
+
+  let currentIndex = 0;
+  const cardWidth = 320 + 32; // w-80 (≈320px) + gap-8 (32px)
+  const totalCards = track.children.length;
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+
+  next?.addEventListener("click", () => {
+    if (currentIndex < totalCards - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  prev?.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  // Hover এ button show/hide
+  wrapper.addEventListener("mouseenter", () => {
+    prev?.classList.remove("opacity-0", "-translate-x-10");
+    next?.classList.remove("opacity-0", "translate-x-10");
+  });
+  wrapper.addEventListener("mouseleave", () => {
+    prev?.classList.add("opacity-0", "-translate-x-10");
+    next?.classList.add("opacity-0", "translate-x-10");
+  });
+}
+
+// ================= Initialize Sliders =================
+initSlider("sliderWrapper", "sliderTrack", "prev", "next");       // New Arrival
+initSlider("bssliderWrapper", "bsSliderTrack", "bsprev", "bsnext"); // Best Sell
