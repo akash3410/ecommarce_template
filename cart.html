@@ -29,6 +29,7 @@
 </head>
 
 <body>
+
     <!-- TOP NAVBAR -->
     <nav class="fixed top-0 left-0 w-full shadow-md z-50 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -224,7 +225,8 @@
     <div id="mobile-menu" class="fixed top-0 left-0 w-72 h-full bg-white shadow transform -translate-x-full transition-transform duration-300 z-50 md:hidden rounded-[10px]">
 
         <!-- Header -->
-        <div class="p-4 border-b flex justify-between items-center bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+        <div
+        class="p-4 border-b flex justify-between items-center bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
         <a href="#" class="text-lg font-semibold text-[#006400]">MyLogo</a>
         <button id="close-menu" class="text-lg">✕</button>
         </div>
@@ -232,108 +234,109 @@
         <!-- Menu Content -->
         <div class="p-4 space-y-4 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] overflow-y-auto h-[calc(100%-64px)]">
 
-            <!-- Main: MENS -->
+        <!-- Main: MENS -->
+        <div>
+            <button class="flex justify-between items-center w-full font-medium submenu-btn">
+            MENS <span class="text-blue-600 toggle-icon">+</span>
+            </button>
+            <div class="submenu hidden pl-4 mt-2 space-y-3">
+
+            <!-- Clothing -->
             <div>
-                <button class="flex justify-between items-center w-full font-medium submenu-btn">
-                MENS <span class="text-blue-600 toggle-icon">+</span>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Clothing <span class="text-blue-600 toggle-icon">+</span>
                 </button>
-                <div class="submenu hidden pl-4 mt-2 space-y-3">
-
-                <!-- Clothing -->
-                <div>
-                    <button class="flex justify-between items-center w-full submenu-btn font-medium">
-                    Clothing <span class="text-blue-600 toggle-icon">+</span>
-                    </button>
-                    <div class="submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" class="block">Shirts</a>
-                    <a href="#" class="block">T-Shirts</a>
-                    <a href="#" class="block">Pants</a>
-                    <a href="#" class="block">Jeans</a>
-                    </div>
-                </div>
-
-                <!-- Accessories -->
-                <div>
-                    <button class="flex justify-between items-center w-full submenu-btn font-medium">
-                    Accessories <span class="text-blue-600 toggle-icon">+</span>
-                    </button>
-                    <div class="submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" class="block">Watches</a>
-                    <a href="#" class="block">Belts</a>
-                    <a href="#" class="block">Wallets</a>
-                    </div>
-                </div>
-
-                <!-- Shoes -->
-                <div>
-                    <button class="flex justify-between items-center w-full submenu-btn font-medium">
-                    Shoes <span class="text-blue-600 toggle-icon">+</span>
-                    </button>
-                    <div class="submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" class="block">Sneakers</a>
-                    <a href="#" class="block">Formal</a>
-                    <a href="#" class="block">Sandals</a>
-                    </div>
-                </div>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="#" class="block">Shirts</a>
+                <a href="#" class="block">T-Shirts</a>
+                <a href="#" class="block">Pants</a>
+                <a href="#" class="block">Jeans</a>
                 </div>
             </div>
 
-            <!-- Main: Sunnah Essentials -->
+            <!-- Accessories -->
             <div>
-                <button class="flex justify-between items-center w-full font-medium submenu-btn">
-                Sunnah Essentials <span class="text-blue-600 toggle-icon">+</span>
-                </button>
-                <div class="submenu hidden pl-4 mt-2 space-y-3">
-
-                <!-- Clothing -->
-                <div>
-                    <button class="flex justify-between items-center w-full submenu-btn font-medium">
-                    Clothing <span class="text-blue-600 toggle-icon">+</span>
-                    </button>
-                    <div class="submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" class="block">Shirts</a>
-                    <a href="#" class="block">T-Shirts</a>
-                    <a href="#" class="block">Pants</a>
-                    <a href="#" class="block">Jeans</a>
-                    </div>
-                </div>
-
-                <!-- Accessories -->
-                <div>
-                    <button class="flex justify-between items-center w-full submenu-btn font-medium">
-                    Accessories <span class="text-blue-600 toggle-icon">+</span>
-                    </button>
-                    <div class="submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" class="block">Watches</a>
-                    <a href="#" class="block">Belts</a>
-                    <a href="#" class="block">Wallets</a>
-                    </div>
-                </div>
-
-                <!-- Shoes -->
-                <div>
-                    <button class="flex justify-between items-center w-full submenu-btn font-medium">
-                    Shoes <span class="text-blue-600 toggle-icon">+</span>
-                    </button>
-                    <div class="submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" class="block">Sneakers</a>
-                    <a href="#" class="block">Formal</a>
-                    <a href="#" class="block">Sandals</a>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-            <!-- Main: Accessories -->
-            <div>
-                <button class="flex justify-between items-center w-full font-medium submenu-btn">
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
                 Accessories <span class="text-blue-600 toggle-icon">+</span>
                 </button>
-                <div class="submenu hidden pl-4 mt-2 space-y-3">
-                    <a href="#" class="block capitalize">bags</a>
-                    <a href="#" class="block capitalize">Wathches</a>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="#" class="block">Watches</a>
+                <a href="#" class="block">Belts</a>
+                <a href="#" class="block">Wallets</a>
                 </div>
             </div>
+
+            <!-- Shoes -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Shoes <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="#" class="block">Sneakers</a>
+                <a href="#" class="block">Formal</a>
+                <a href="#" class="block">Sandals</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Main: Sunnah Essentials -->
+        <div>
+            <button class="flex justify-between items-center w-full font-medium submenu-btn">
+            Sunnah Essentials <span class="text-blue-600 toggle-icon">+</span>
+            </button>
+            <div class="submenu hidden pl-4 mt-2 space-y-3">
+
+            <!-- Clothing -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Clothing <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="#" class="block">Shirts</a>
+                <a href="#" class="block">T-Shirts</a>
+                <a href="#" class="block">Pants</a>
+                <a href="#" class="block">Jeans</a>
+                </div>
+            </div>
+
+            <!-- Accessories -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Accessories <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="#" class="block">Watches</a>
+                <a href="#" class="block">Belts</a>
+                <a href="#" class="block">Wallets</a>
+                </div>
+            </div>
+
+            <!-- Shoes -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Shoes <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="#" class="block">Sneakers</a>
+                <a href="#" class="block">Formal</a>
+                <a href="#" class="block">Sandals</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Main: Accessories -->
+        <div>
+            <button class="flex justify-between items-center w-full font-medium submenu-btn">
+            Accessories <span class="text-blue-600 toggle-icon">+</span>
+            </button>
+            <div class="submenu hidden pl-4 mt-2 space-y-3">
+                <a href="#" class="block capitalize">bags</a>
+                <a href="#" class="block capitalize">Wathches</a>
+            </div>
+        </div>
+
         </div>
     </div>
 
@@ -371,127 +374,17 @@
         </a>
     </div>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" 
-        class="fixed md:bottom-44 bottom-36 right-2 bg-[#2B5161] text-white p-3 rounded-2xl shadow-lg 
-            hover:bg-[#11232B] transition transform hover:scale-110 hidden z-50">
-        ⬆
-        Scroll to Top
-    </button>
-
-    <!-- Product Details -->
-    <div class="items-center justify-center mt-32">
-        <h2 class="block md:hidden text-lg font-bold text-gray-800 ms-4"> Details </h2>
-        <div class="bg-white py-10 px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <!-- Left -->
-                <div class="flex flex-col md:flex-row">
-
-                    <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 mb-4 md:mb-0">
-                        <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                        <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                    </div>
-
-                    <!-- Large Image Container -->
-                    <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
-                        <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
-
-                        <!-- Lens -->
-                        <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
-                    </div>
-                </div>
-
-                <!-- Right -->
-                <div class="flex flex-col justify-between">
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
-                        <p class="text-base text-[#00AE7A] mb-4">$129.99</p>
-                        <div class="mb-4 flex items-center space-x-2">
-                        <p class="text-sm font-medium text-gray-700">Color: Black</p>
-                        <div class="w-4 h-4 bg-black rounded-full"></div>
-                        </div>
-                        <!-- Sizes -->
-                        <div class="mb-4">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
-                            <div class="flex space-x-2">
-                                <label><input type="radio" name="size1" value="M" class="hidden peer">
-                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
-                                </div>
-                                </label>
-                                <label><input type="radio" name="size1" value="L" class="hidden peer">
-                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
-                                </div>
-                                </label>
-                                <label><input type="radio" name="size1" value="XL" class="hidden peer">
-                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                                    XL</div>
-                                </label>
-                                <label><input type="radio" name="size1" value="XXL" class="hidden peer">
-                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                                    XXL</div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex space-x-3 mt-4 md:mt-0">
-                        <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                        <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                        <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                        <i data-feather="heart"></i>
-                        </button>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
-                </div>
-            </div>
-        </div>
+    <!-- Main Cart -->
+    <div class="mirror-gradient mx-auto px-4 md:pt-14 pt-10 pb-5 md:mt-20 mt-10">
+        <h1>Hello Cart!</h1>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt et quod perspiciatis quas voluptatibus necessitatibus ab voluptas amet harum, laboriosam aperiam praesentium ipsa beatae at molestiae voluptatum totam repudiandae eum nisi consectetur nulla, ut ex. Incidunt saepe consectetur voluptatem mollitia vel vero aspernatur eaque impedit excepturi modi consequatur nostrum numquam ullam, voluptas beatae asperiores nobis ex dolorem, libero quaerat, inventore quibusdam iusto minus accusantium. Iusto debitis maiores, sequi ipsam neque dolorem eaque ab possimus laborum. Numquam, molestias autem dolore animi voluptas omnis! Magnam, tenetur voluptates. Omnis eligendi fugiat voluptatibus. Dignissimos eius non ea architecto, impedit dolore corrupti necessitatibus sed animi. At ad quaerat amet dolorem consequuntur id earum voluptatum rerum tempora quas distinctio, facilis a, magni animi! Incidunt aspernatur molestias eaque qui, quaerat assumenda consectetur alias nisi, voluptatibus aliquid similique odit architecto non neque facere minus nobis error atque commodi consequatur dolorem. Neque, excepturi obcaecati itaque repellat quibusdam nihil sed, quod, enim cupiditate voluptatibus minima magni? Odio recusandae doloribus eum! Aut illo sunt nihil obcaecati perferendis, hic voluptatem asperiores quae magni facere architecto enim harum, libero alias, modi aliquid distinctio ipsum consequuntur optio deserunt? Consequatur tenetur voluptates quae, tempore ducimus quasi, sed in nisi qui velit ullam aliquam incidunt. Eius voluptates hic ipsam libero recusandae ducimus at repellat commodi, quas dignissimos obcaecati expedita quisquam assumenda dolores eos sapiente fugit minima neque? Reprehenderit ad inventore minima. Aliquid consectetur, doloribus rem optio voluptate delectus quaerat reprehenderit consequuntur dicta eaque quidem iste sit perferendis? Officiis voluptatibus unde nam, ipsa odio mollitia alias nesciunt, repellendus praesentium voluptatum libero fugiat rerum? At vero quisquam architecto vel laborum tempore ipsam, voluptatum perferendis! Reprehenderit ullam atque unde vitae maiores cumque excepturi accusantium, ab quis asperiores culpa officiis. Veritatis ducimus deleniti officia ut est soluta itaque dignissimos animi repellat doloremque minus labore sit corrupti eveniet ipsum nihil, non vero. Eos quia aliquam modi exercitationem omnis nemo unde totam, dicta, ullam saepe voluptate nesciunt alias optio ut reprehenderit quaerat? Itaque accusamus maiores iste aspernatur voluptas quaerat delectus omnis, debitis nesciunt! Ipsum, fugiat provident. Unde blanditiis quaerat odit voluptatum neque doloribus tenetur excepturi eius, similique ipsum minima dolore obcaecati necessitatibus reiciendis natus dignissimos corrupti autem asperiores ex nisi corporis officia. Ipsa minus quam illo id dicta voluptatem fugit soluta, dolorum veniam rerum non voluptatibus, ea magni facere sed earum, enim quia modi sit impedit? Tempore assumenda hic ad, explicabo vero nisi consequuntur eaque quibusdam eos atque commodi delectus sequi ratione. Laboriosam, nesciunt cum? Voluptatem voluptates voluptatum repellat corporis quibusdam qui enim fuga deleniti nihil repudiandae voluptas illum sunt quod, placeat, vel beatae? Ex placeat recusandae fugiat reprehenderit illo amet ipsa vitae asperiores nesciunt sunt dolor aut, suscipit temporibus. Distinctio beatae consequatur soluta? Exercitationem voluptates odit minima? Assumenda eos soluta at fuga voluptates neque. Itaque consequatur suscipit a totam quisquam repellendus minus. Sit nulla aspernatur quae, officia reprehenderit quasi soluta quod corporis voluptatum sapiente eos qui provident maiores accusamus, molestias dolorem magnam dicta earum perspiciatis labore architecto cum iusto vel? Rem, nihil labore. Dolore beatae numquam autem maxime nostrum delectus possimus?
+        </p>
     </div>
 
-    <!-- Divider -->
-    <hr class="border-t-2 border-gray-300">
-
-    <!-- Tabs Section -->
-    <div class="">
-        <!-- Tab Buttons -->
-        <div class="flex border-b border-gray-300 py-5">
-            <button class="tab-btn px-6 py-2 font-semibold text-gray-700 border-b-2 border-blue-600">
-            Description
-            </button>
-            <button class="tab-btn px-6 py-2 font-semibold text-gray-700 border-b-2 border-transparent hover:text-blue-600">
-            Shipping & Returns
-            </button>
-            <button class="tab-btn px-6 py-2 font-semibold text-gray-700 border-b-2 border-transparent hover:text-blue-600">
-            Reviews
-            </button>
-        </div>
-
-        <!-- Tab Contents -->
-        <div class="tab-content mt-4 p-5">
-            <!-- Description -->
-            <div class="tab-panel">
-                <p class="text-gray-600">
-                    This premium shoe is made with high-quality leather, soft padding, and durable sole
-                    to provide maximum comfort and long-lasting wear.
-                </p>
-            </div>
-
-            <!-- Shipping -->
-            <div class="tab-panel hidden">
-                <p class="text-gray-600">
-                    Free shipping for orders above $50. Easy 7-day return policy with 100% refund guarantee.
-                </p>
-            </div>
-
-            <!-- Reviews -->
-            <div class="tab-panel hidden">
-                <p class="text-gray-600">
-                    ⭐⭐⭐⭐☆ — "Very comfortable and stylish shoes!" <br>
-                    ⭐⭐⭐⭐⭐ — "Excellent quality, worth the price."
-                </p>
-            </div>
-        </div>
-    </div>
-
-
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>
+    
     <!-- Cart Button -->
     <div id="myCartBtn" class="fixed md:bottom-60 bottom-52 right-2 px-3 py-3 rounded-xl shadow-lg hover:bg-gray-100 transition transform hover:scale-105 z-50 flex flex-col items-center space-y-1 border border-blue-700 cursor-pointer
         -translate-y-20 opacity-0">
@@ -538,6 +431,16 @@
         </div>
     </div>
 
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" 
+        class="fixed md:bottom-44 bottom-36 right-2 bg-[#2B5161] text-white p-3 rounded-2xl shadow-lg 
+            hover:bg-[#11232B] transition transform hover:scale-110 hidden z-50">
+        ⬆
+        Scroll to Top
+    </button>
+
+    <!-- Footer Section -->
     <footer class="bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#000000] text-gray-300 mb-16 md:mb-0">
         <!-- First Part: Logo Center -->
         <div class="text-center py-10 border-b border-gray-700">
@@ -629,28 +532,6 @@
         </div>
         </div>
     </footer>
-
-    <script>
-  // Tabs Script
-  const tabs = document.querySelectorAll(".tab-btn");
-  const panels = document.querySelectorAll(".tab-panel");
-
-  tabs.forEach((tab, i) => {
-    tab.addEventListener("click", () => {
-      // remove active class
-      tabs.forEach(t => {
-        t.classList.remove("border-blue-600", "text-blue-600");
-        t.classList.add("border-transparent");
-      });
-      panels.forEach(p => p.classList.add("hidden"));
-
-      // add active to clicked
-      tab.classList.remove("border-transparent");
-      tab.classList.add("border-blue-600", "text-blue-600");
-      panels[i].classList.remove("hidden");
-    });
-  });
-</script>
 
   <!-- My JS -->
   <script src="js/script.js"></script>
