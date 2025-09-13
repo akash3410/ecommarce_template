@@ -1,12 +1,12 @@
 # E-Commarce Templates
 
-- By
+Design with --
 
-  - HTML
-  - CSS
-    - Tailwind CSS
-    - Animste Css
-  - JavaScript
+- HTML
+- CSS
+  - Tailwind CSS
+  - Animste Css
+- JavaScript
 
-  - Icons
-    - Font Awesome
+- Icons
+  - Font Awesome
