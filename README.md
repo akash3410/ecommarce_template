@@ -27,6 +27,9 @@ A modern free E-Commerce web templates for browsing. Fully responsive and built 
 ## 🔹 Technologies Used
 
 - **Frontend:** HTML, CSS, TailwindCSS, JavaScript
+- **Animation:** CSS, Animate CSS
+- **Icon:** Font Awesome
+- **Font:** Google Fonts (sans-serif, Poppins)
 <!-- - **Backend:** Django, Django REST Framework
 - **Database:** SQLite / PostgreSQL
 - **Authentication:** Django built-in auth
