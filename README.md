@@ -40,5 +40,5 @@ A modern free E-Commerce web templates for browsing. Fully responsive and built 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-repo.git
+gh repo clone akash3410/ecommarce_template
 ```
