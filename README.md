@@ -1,3 +1,12 @@
 # E-Commarce Templates
 
-Desing using HTML, CSS, Tailwind CSS, JavaScript
+- By
+
+  - HTML
+  - CSS
+    - Tailwind CSS
+    - Animste Css
+  - JavaScript
+
+  - Icons
+    - Font Awesome
