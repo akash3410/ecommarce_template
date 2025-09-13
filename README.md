@@ -1,8 +1,8 @@
-# My eCommerce Project
+# E-Commarce Web Template
 
 <!-- A modern E-Commerce web application for browsing, shopping, and managing products. Fully responsive and built with clean, modular code. -->
 
-A modern E-Commerce web templates for browsing. Fully responsive and built with clean, modular code.
+A modern free E-Commerce web templates for browsing. Fully responsive and built with clean, modular code.
 
 ---
 
