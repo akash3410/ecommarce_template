@@ -374,13 +374,127 @@
         </a>
     </div>
 
-    <!-- Main Cart -->
-    <div class="mirror-gradient mx-auto px-4 md:pt-14 pt-10 pb-5 md:mt-20 mt-10">
-        <h1>Hello Cart!</h1>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt et quod perspiciatis quas voluptatibus necessitatibus ab voluptas amet harum, laboriosam aperiam praesentium ipsa beatae at molestiae voluptatum totam repudiandae eum nisi consectetur nulla, ut ex. Incidunt saepe consectetur voluptatem mollitia vel vero aspernatur eaque impedit excepturi modi consequatur nostrum numquam ullam, voluptas beatae asperiores nobis ex dolorem, libero quaerat, inventore quibusdam iusto minus accusantium. Iusto debitis maiores, sequi ipsam neque dolorem eaque ab possimus laborum. Numquam, molestias autem dolore animi voluptas omnis! Magnam, tenetur voluptates. Omnis eligendi fugiat voluptatibus. Dignissimos eius non ea architecto, impedit dolore corrupti necessitatibus sed animi. At ad quaerat amet dolorem consequuntur id earum voluptatum rerum tempora quas distinctio, facilis a, magni animi! Incidunt aspernatur molestias eaque qui, quaerat assumenda consectetur alias nisi, voluptatibus aliquid similique odit architecto non neque facere minus nobis error atque commodi consequatur dolorem. Neque, excepturi obcaecati itaque repellat quibusdam nihil sed, quod, enim cupiditate voluptatibus minima magni? Odio recusandae doloribus eum! Aut illo sunt nihil obcaecati perferendis, hic voluptatem asperiores quae magni facere architecto enim harum, libero alias, modi aliquid distinctio ipsum consequuntur optio deserunt? Consequatur tenetur voluptates quae, tempore ducimus quasi, sed in nisi qui velit ullam aliquam incidunt. Eius voluptates hic ipsam libero recusandae ducimus at repellat commodi, quas dignissimos obcaecati expedita quisquam assumenda dolores eos sapiente fugit minima neque? Reprehenderit ad inventore minima. Aliquid consectetur, doloribus rem optio voluptate delectus quaerat reprehenderit consequuntur dicta eaque quidem iste sit perferendis? Officiis voluptatibus unde nam, ipsa odio mollitia alias nesciunt, repellendus praesentium voluptatum libero fugiat rerum? At vero quisquam architecto vel laborum tempore ipsam, voluptatum perferendis! Reprehenderit ullam atque unde vitae maiores cumque excepturi accusantium, ab quis asperiores culpa officiis. Veritatis ducimus deleniti officia ut est soluta itaque dignissimos animi repellat doloremque minus labore sit corrupti eveniet ipsum nihil, non vero. Eos quia aliquam modi exercitationem omnis nemo unde totam, dicta, ullam saepe voluptate nesciunt alias optio ut reprehenderit quaerat? Itaque accusamus maiores iste aspernatur voluptas quaerat delectus omnis, debitis nesciunt! Ipsum, fugiat provident. Unde blanditiis quaerat odit voluptatum neque doloribus tenetur excepturi eius, similique ipsum minima dolore obcaecati necessitatibus reiciendis natus dignissimos corrupti autem asperiores ex nisi corporis officia. Ipsa minus quam illo id dicta voluptatem fugit soluta, dolorum veniam rerum non voluptatibus, ea magni facere sed earum, enim quia modi sit impedit? Tempore assumenda hic ad, explicabo vero nisi consequuntur eaque quibusdam eos atque commodi delectus sequi ratione. Laboriosam, nesciunt cum? Voluptatem voluptates voluptatum repellat corporis quibusdam qui enim fuga deleniti nihil repudiandae voluptas illum sunt quod, placeat, vel beatae? Ex placeat recusandae fugiat reprehenderit illo amet ipsa vitae asperiores nesciunt sunt dolor aut, suscipit temporibus. Distinctio beatae consequatur soluta? Exercitationem voluptates odit minima? Assumenda eos soluta at fuga voluptates neque. Itaque consequatur suscipit a totam quisquam repellendus minus. Sit nulla aspernatur quae, officia reprehenderit quasi soluta quod corporis voluptatum sapiente eos qui provident maiores accusamus, molestias dolorem magnam dicta earum perspiciatis labore architecto cum iusto vel? Rem, nihil labore. Dolore beatae numquam autem maxime nostrum delectus possimus?
-        </p>
+    <!-- Cart -->
+    <div class="min-h-screen bg-gray-100 p-6 mirror-gradient mx-auto px-4 md:pt-14 pt-10 pb-5 md:mt-20 mt-10">
+
+        <!-- Stepper -->
+        <div class="max-w-5xl mx-auto mb-8">
+            <div class="flex items-center justify-between">
+                <!-- Step 1 -->
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold border border-gray-300">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <span class="mt-2 text-sm font-medium text-gray-700">Shopping Cart</span>
+                </div>
+                <div class="flex-1 h-1 -mt-5 bg-gray-300"></div>
+
+                <!-- Step 2 -->
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-400 font-bold border border-8 border-gray-300 rounded-full"></div>
+                    <span class="mt-2 text-sm font-medium text-gray-700">Checkout</span>
+                </div>
+                <div class="flex-1 h-1 -mt-5 bg-gray-300 w-100%"></div>
+                
+                <!-- Step 3 -->
+                <div class="flex-1 flex flex-col items-center">
+                    <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-400 font-bold border border-8 border-gray-300 rounded-full"></div>
+                    <span class="mt-2 text-sm font-medium text-gray-700">Order Complete</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Left Side: Cart Items -->
+            <div class="md:col-span-2 space-y-4">
+
+                <!-- Example Cart Item Card -->
+                <div class="rounded-lg shadow-md p-4 flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+
+                <!-- Left Side: Image + Details -->
+                <div class="flex items-center space-x-4">
+                    <img class="w-20 h-20 rounded" src="img/cat1.jpg" alt="Product">
+                    <div>
+                    <h3 class="font-semibold text-gray-800">Product Name</h3>
+                    <p class="text-sm text-gray-500">Price: $25.00</p>
+                    <p class="text-sm text-gray-500">Size: M</p>
+                    </div>
+                </div>
+
+                <!-- Right Side: Quantity + Price + Remove -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-3 sm:space-y-0">
+                    
+                    <!-- Quantity with + / - -->
+                    <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden w-fit shadow-sm mx-auto sm:mx-0">
+                        <button type="button" class="px-4 py-1 hover:bg-gray-200 text-lg font-bold text-gray-600 transition border-r border-gray-300" onclick="updateQty(this, -1, 1, 25)">
+                            −
+                        </button>
+
+                        <input type="number"
+                            id="qty-1"
+                            value="1"
+                            min="1"
+                            readonly
+                            class="w-14 text-center font-semibold text-gray-700 focus:outline-none bg-transparent" 
+                        />
+
+                    <button type="button" class="px-4 py-1 hover:bg-gray-200 text-lg font-bold text-gray-600 transition border-l border-gray-300" onclick="updateQty(this, 1, 1, 25)">+</button>
+                    </div>
+
+                    <!-- Price -->
+                    <span id="item-total-1" class="font-semibold text-gray-800 text-center sm:text-left">$25.00</span>
+
+                    <!-- Remove Button -->
+                    <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 w-full sm:w-auto">
+                    Remove
+                    </button>
+                </div>
+                </div>
+                
+                <!-- Coupon Section -->
+                <div class="rounded-lg shadow-md p-4 flex items-center justify-between">
+                    <input
+                        type="text"
+                        placeholder="Enter Coupon Code"
+                        class="w-full bg-transparent rounded px-3 py-2 mr-3 border border-1 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none placeholder:text-gray-600 placeholder:italic"
+                    >
+                    <button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Apply</button>
+                </div>
+            </div>
+
+            <!-- Right Side: Order Summary -->
+            <div>
+                <div class="rounded-lg shadow-md p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Order Summary</h3>
+                    <div class="flex justify-between mb-2">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$25.00</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span>VAT (5%)</span>
+                        <span id="vat">$1.25</span>
+                    </div>
+
+                    <div class="flex justify-between mb-2">
+                        <span>Discount</span>
+                        <span id="discount">-$1.31</span>
+                    </div>
+                    <hr class="my-3">
+                    <div class="flex justify-between text-lg font-bold text-gray-800 mb-4">
+                        <span>Total</span>
+                        <span id="total">$23.00</span>
+                    </div>
+                    <div class="space-y-3">
+                        <button class="w-full px-6 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Continue Shopping</button>
+                        <button class="w-full px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700" onclick="prepareCartData()">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <!-- Overlay -->
     <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40"></div>

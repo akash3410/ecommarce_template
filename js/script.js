@@ -349,3 +349,44 @@ function initSlider(wrapperId, trackId, prevId, nextId) {
 // ================= Initialize Sliders =================
 initSlider("sliderWrapper", "sliderTrack", "prev", "next");       // New Arrival
 initSlider("bssliderWrapper", "bsSliderTrack", "bsprev", "bsnext"); // Best Sell
+
+
+// Main Cart
+function updateQty(btn, change, itemId, price) {
+  const qtyInput = document.getElementById(`qty-${itemId}`);
+  let qty = parseInt(qtyInput.value);
+
+  qty = Math.max(1, qty + change);
+  qtyInput.value = qty;
+
+  document.getElementById(`item-total-${itemId}`).innerText = "$" + (qty * price).toFixed(2);
+
+  updateCartSummary();
+}
+
+function updateCartSummary() {
+  let subtotal = 0;
+  document.querySelectorAll("[id^='item-total-']").forEach(el => {
+    subtotal += parseFloat(el.innerText.replace("$", ""));
+  });
+
+  document.getElementById("subtotal").innerText = "$" + subtotal.toFixed(2);
+
+  const vat = subtotal * 0.05;
+  document.getElementById("vat").innerText = "$" + vat.toFixed(2);
+
+  const discount = ((subtotal+vat) * 5)/100;
+  document.getElementById("discount").innerText = "-$" + discount.toFixed(2);
+
+  const total = subtotal + vat - discount;
+  document.getElementById("total").innerText = "$" + total.toFixed(2);
+}
+
+function prepareCartData() {
+  let cart = {};
+  document.querySelectorAll("[id^='qty-']").forEach(input => {
+    const id = input.id.replace("qty-", "");
+    cart[id] = parseInt(input.value);
+  });
+  console.log("Cart data ready for backend:", cart);
+}
