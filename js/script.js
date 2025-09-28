@@ -237,8 +237,22 @@ document.addEventListener("DOMContentLoaded", function() {
   menu?.querySelectorAll('li').forEach(item=>item.addEventListener('click',()=>{btn.textContent=`Sort by: ${item.textContent}`;menu.classList.add('hidden');}));
 });
 
+// Animation at Scroll on Navbar
+const navbar = document.getElementById("navbar");
+let lastScrollY = 0;
 
-// Animation (Smooth Ease In)
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 10 && lastScrollY <= 10) {
+    // নিচে নামলে drop animation
+    navbar.classList.add("drop-animation");
+  } else if (window.scrollY <= 10 && lastScrollY > 10) {
+    // আবার উপরে গেলে lift animation
+    navbar.classList.remove("drop-animation");
+  }
+  lastScrollY = window.scrollY;
+});
+
+// Animation Cart (Smooth Ease In)
 document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".smooth-ease-in"); // product grid wrapper
     if (!grid) return;
@@ -390,3 +404,66 @@ function prepareCartData() {
   });
   console.log("Cart data ready for backend:", cart);
 }
+
+
+// District -> Thana mapping
+const thanaData = {
+  dhaka: ["Mirpur", "Dhanmondi", "Uttara", "Banani"],
+  chattogram: ["Pahartali", "Kotwali", "Patenga", "Halishahar"],
+  rajshahi: ["Boalia", "Motihar", "Shah Makhdum", "Rajpara"],
+  sylhet: ["Beanibazar", "Zakiganj", "Golapganj", "Companiganj"]
+};
+
+// Make searchable dropdown
+function searchable(inputId, listId, callback) {
+  const input = document.getElementById(inputId);
+  const list = document.getElementById(listId);
+
+  input.addEventListener("focus", () => list.classList.remove("hidden"));
+
+  input.addEventListener("input", () => {
+    const filter = input.value.toLowerCase();
+    [...list.getElementsByTagName("li")].forEach(li => {
+      li.style.display = li.textContent.toLowerCase().includes(filter) ? "" : "none";
+    });
+  });
+
+  list.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+      input.value = e.target.textContent;
+      list.classList.add("hidden");
+      if (callback) callback(e.target.dataset.value); // pass selected district
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!input.parentElement.contains(e.target)) {
+      list.classList.add("hidden");
+    }
+  });
+}
+
+// Initialize district dropdown
+searchable("districtInput", "districtList", (selectedDistrict) => {
+  const thanaInput = document.getElementById("thanaInput");
+  const thanaList = document.getElementById("thanaList");
+
+  // Enable thana input
+  thanaInput.disabled = false;
+  thanaInput.value = "";
+  thanaInput.placeholder = "Search Thana...";
+
+  // Clear old thana list
+  thanaList.innerHTML = "";
+
+  // Populate new thana list
+  thanaData[selectedDistrict].forEach(thana => {
+    const li = document.createElement("li");
+    li.textContent = thana;
+    li.className = "px-3 py-2 hover:bg-blue-100 cursor-pointer";
+    thanaList.appendChild(li);
+  });
+
+  // Re-init searchable for thana
+  searchable("thanaInput", "thanaList");
+});

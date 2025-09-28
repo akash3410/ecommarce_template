@@ -168,3 +168,19 @@ h1, h2, h3 {
 html, body {
   overflow-x: hidden;
 }
+
+/* Navbar Scroll animation */
+@keyframes dropNavbar {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.drop-animation {
+  animation: dropNavbar 0.6s ease forwards;
+}
