@@ -1,113 +1,169 @@
-    <!-- Cart -->
-    <div class="min-h-screen bg-gray-100 p-6 mirror-gradient mx-auto px-4 md:pt-14 pt-10 pb-5 md:mt-20 mt-10">
-        <!-- Stepper -->
-        <div class="max-w-5xl mx-auto mb-8">
-            <div class="flex items-center justify-between">
-            <!-- Step 1 -->
-            <div class="flex-1 flex flex-col items-center">
-                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-green-600 text-white font-bold">1</div>
-                <span class="mt-2 text-sm font-medium text-gray-700">Shopping Cart</span>
-            </div>
-            <div class="flex-1 h-1 bg-gray-300"></div>
-            <!-- Step 2 -->
-            <div class="flex-1 flex flex-col items-center">
-                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-300 text-gray-600 font-bold">2</div>
-                <span class="mt-2 text-sm font-medium text-gray-700">Checkout</span>
-            </div>
-            <div class="flex-1 h-1 bg-gray-300"></div>
-            <!-- Step 3 -->
-            <div class="flex-1 flex flex-col items-center">
-                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-300 text-gray-600 font-bold">3</div>
-                <span class="mt-2 text-sm font-medium text-gray-700">Order Complete</span>
-            </div>
-            </div>
-        </div>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Order Summary (Tailwind)</title>
 
-        <!-- Main Content -->
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- Left Side: Cart Items -->
-            <div class="md:col-span-2 space-y-4">
-            
-                <!-- Single Product Card -->
-                <div class="rounded-lg shadow-md p-4 flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                    <img class="w-20 h-20 rounded" src="img/cat1.jpg" alt="Product">
-                    <div>
-                        <h3 class="font-semibold text-gray-800">Product Name</h3>
-                        <p class="text-sm text-gray-500">Price: $25.00</p>
-                        <p class="text-sm text-gray-500">Size: M</p>
-                    </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-2">
-                            <!-- Minus Button -->
-                            <button 
-                                type="button" 
-                                class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-                                onclick="decreaseQty(this)"
-                            >−</button>
+  <!-- Tailwind CDN for quick demo -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-                            <!-- Quantity Input -->
-                            <input 
-                                type="number" 
-                                value="1" 
-                                min="1" 
-                                class="w-16 text-center border rounded px-2 py-1 focus:outline-none focus:border-blue-500"
-                            >
+  <style>
+    /* Ticket-style notches on left and right */
+    .ticket {
+      position: relative;
+      overflow: visible;
+      border-radius: 0.5rem;
+    }
+    /* circular notches */
+    .ticket::before,
+    .ticket::after {
+      content: '';
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      background: white; /* matches card background */
+      border-radius: 50%;
+      top: 64px; /* aligns with the dashed divider */
+      box-shadow: 0 0 0 6px rgba(0,0,0,0.03); /* subtle halo like in image */
+    }
+    .ticket::before { left: -17px; }
+    .ticket::after  { right: -17px; }
 
-                            <!-- Plus Button -->
-                            <button 
-                                type="button" 
-                                class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-                                onclick="increaseQty(this)"
-                            >+</button>
-                        </div>
+    /* Zig-zag tear at bottom using repeating-linear-gradient clipped into an element */
+    .ticket-bottom-teeth {
+      height: 20px;
+      background-image: 
+        linear-gradient(135deg, transparent 0 12px, #e9e9eb 12px 24px);
+      background-size: 24px 20px;
+      transform: translateY(1px);
+      border-bottom-left-radius: .5rem;
+      border-bottom-right-radius: .5rem;
+    }
 
-                        <span class="font-semibold text-gray-800">$25.00</span>
-                        <button class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">Remove</button>
-                    </div>
-                </div>
+    /* small dashed divider style */
+    .dashed {
+      background-image: linear-gradient(to right, #d1d5db 33%, rgba(255,255,255,0) 0%);
+      background-position: left center;
+      background-size: 8px 2px;
+      background-repeat: repeat-x;
+      height: 1px;
+    }
 
-                <!-- Coupon Section -->
-                <div class="rounded-lg shadow-md p-4 flex items-center justify-between">
-                    <input
-                        type="text"
-                        placeholder="Enter Coupon Code"
-                        class="w-full bg-transparent rounded px-3 py-2 mr-3 border border-1 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none placeholder:text-gray-600 placeholder:italic"
-                    >
-                    <button class="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Apply</button>
-                </div>
+    /* small avatar / product image placeholder */
+    .img-placeholder {
+      background: linear-gradient(135deg,#fef3c7,#fee2e2);
+      border-radius: .5rem;
+    }
 
-            </div>
+    /* subtle inner shadow on the ticket box */
+    .ticket-inner {
+      box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+    }
+  </style>
+</head>
+<body class="bg-[#faf5f1] font-sans antialiased">
 
-            <!-- Right Side: Order Summary -->
+  <div class="min-h-screen flex items-center justify-center p-8">
+    <!-- Right-side card container (centred for demo) -->
+    <div class="w-full max-w-xl">
+
+      <div class="ticket ticket-inner bg-white border border-transparent">
+        <!-- header -->
+        <div class="px-8 pt-8 pb-6">
+          <h2 class="text-2xl font-semibold text-slate-800">Order Summary</h2>
+          <div class="mt-4 grid grid-cols-3 gap-4 text-sm text-slate-500">
             <div>
-            <div class="rounded-lg shadow-md p-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-4">Order Summary</h3>
-                <div class="flex justify-between mb-2 text-gray-600">
-                <span>Subtotal</span>
-                <span>$75.00</span>
-                </div>
-                <div class="flex justify-between mb-2 text-gray-600">
-                <span>VAT (5%)</span>
-                <span>$3.75</span>
-                </div>
-                <div class="flex justify-between mb-2 text-gray-600">
-                <span>Discount</span>
-                <span>-$5.00</span>
-                </div>
-                <hr class="my-3">
-                <div class="flex justify-between text-lg font-bold text-gray-800 mb-4">
-                <span>Total</span>
-                <span>$73.75</span>
-                </div>
-                <div class="space-y-3">
-                <button class="w-full px-6 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Continue Shopping</button>
-                <button class="w-full px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700">Proceed to Checkout</button>
-                </div>
+              <div class="text-xs text-slate-400">Date</div>
+              <div class="mt-1 text-slate-700 font-medium">02 May 2023</div>
             </div>
+            <div>
+              <div class="text-xs text-slate-400">Order Number</div>
+              <div class="mt-1 text-slate-700 font-medium">024-125478956</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-400">Payment Method</div>
+              <div class="mt-1 text-slate-700 font-medium">Mastercard</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- dashed divider -->
+        <div class="px-6">
+          <div class="dashed"></div>
+        </div>
+
+        <!-- items -->
+        <div class="px-6 py-6 space-y-4">
+          <!-- item 1 -->
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 flex-shrink-0 img-placeholder p-1 flex items-center justify-center">
+              <!-- image placeholder -->
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" class="w-10 h-10 opacity-80">
+                <rect width="24" height="24" rx="4" fill="white" />
+                <path d="M4 16c1.333-2 4-6 8-6s6.667 4 8 6" stroke="#f97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
 
+            <div class="flex-1">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="text-sm font-medium text-slate-800">All In One Chocolate Combo</div>
+                  <div class="text-xs text-slate-400 mt-1">Pack: Medium • Qty: 1</div>
+                </div>
+                <div class="text-sm font-medium text-slate-800">$50.00</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- item 2 -->
+          <div class="flex items-start gap-4">
+            <div class="w-14 h-14 flex-shrink-0 img-placeholder p-1 flex items-center justify-center">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" class="w-10 h-10 opacity-80">
+                <rect width="24" height="24" rx="4" fill="white" />
+                <circle cx="12" cy="9" r="3" stroke="#fb7185" stroke-width="1.5"/>
+                <path d="M3 17c3-3.5 6-6 9-6s6 2.5 9 6" stroke="#fb7185" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="flex-1">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="text-sm font-medium text-slate-800">Desire Of Hearts</div>
+                  <div class="text-xs text-slate-400 mt-1">Pack: Large • Qty: 1</div>
+                </div>
+                <div class="text-sm font-medium text-slate-800">$50.00</div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- subtotal area -->
+        <div class="px-6">
+          <div class="dashed"></div>
+        </div>
+
+        <div class="px-6 py-5">
+          <div class="space-y-2 text-sm text-slate-600">
+            <div class="flex justify-between"><span>Sub Total</span><span class="text-slate-700">$100.00</span></div>
+            <div class="flex justify-between"><span>Shipping</span><span class="text-slate-700">$2.00</span></div>
+            <div class="flex justify-between"><span>Tax</span><span class="text-slate-700">$5.00</span></div>
+          </div>
+
+          <div class="mt-4 border-t pt-4 flex items-center justify-between">
+            <div>
+              <div class="text-sm text-slate-500">Order Total</div>
+            </div>
+            <div class="text-lg font-semibold text-slate-800">$107.00</div>
+          </div>
+        </div>
+
+        <!-- bottom zig-zag "teeth" -->
+        <div class="ticket-bottom-teeth"></div>
+      </div>
+
     </div>
+  </div>
+
+</body>
+</html>

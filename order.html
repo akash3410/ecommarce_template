@@ -50,6 +50,59 @@
       animation: popIn 0.8s ease forwards;
     }
   </style>
+
+    <style>
+    /* Ticket-style notches on left and right */
+    .ticket {
+      position: relative;
+      overflow: visible;
+      border-radius: 0.5rem;
+    }
+    /* circular notches */
+    .ticket::before,
+    .ticket::after {
+      content: '';
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      background: white; /* matches card background */
+      border-radius: 50%;
+      top: 64px; /* aligns with the dashed divider */
+      box-shadow: 0 0 0 6px rgba(0,0,0,0.03); /* subtle halo like in image */
+    }
+    .ticket::before { left: -17px; }
+    .ticket::after  { right: -17px; }
+
+    /* Zig-zag tear at bottom using repeating-linear-gradient clipped into an element */
+    .ticket-bottom-teeth {
+      height: 20px;
+      background-image: linear-gradient(180deg, #fffdfd 50%, #f3f4f6 50%, #d1d5db 100%);
+      background-size: 24px 20px;
+      transform: translateY(1px);
+      border-bottom-left-radius: .5rem;
+      border-bottom-right-radius: .5rem;
+    }
+
+    /* small dashed divider style */
+    .dashed {
+      background-image: linear-gradient(to right, #d1d5db 33%, rgba(255,255,255,0) 0%);
+      background-position: left center;
+      background-size: 8px 2px;
+      background-repeat: repeat-x;
+      height: 1px;
+    }
+
+    /* small avatar / product image placeholder */
+    .img-placeholder {
+      background: linear-gradient(135deg,#fef3c7,#fee2e2);
+      border-radius: .5rem;
+    }
+
+    /* subtle inner shadow on the ticket box */
+    .ticket-inner {
+      box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+    }
+  </style>
 </head>
 
 <body>
@@ -69,7 +122,7 @@
     <h3 class="-mt-5 font-semibold text-green-600 mx-auto text-center animate-pop">Order Received</h3>
 
     <!-- Main Section -->
-    <div class="max-w-5xl mx-auto rounded-xl shadow-md mt-5">
+    <div class="max-w-5xl mx-auto rounded-xl shadow-md my-5">
       <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-0">
 
         <!-- left -->
@@ -83,9 +136,12 @@
            <!-- Message Section -->
            <div>
                 <h1 class="text-3xl mt-5 mb-2 text-sky-900">Thank you For Your Purchase!</h1>
-              <p class="text-xs text-gray-500">Your Order Will be processd within 24 hours during working days. We will notify you by email once your order has been shipped</p>  
-              
-              <a href="index.html" class="inline-block bg-blue-800 text-sm text-gray-100 font-bold p-2 mt-4 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:bg-blue-900">Continue shopping</a>
+              <p class="text-xs text-gray-500">Your Order Will be processd within 24 hours during working days. We will notify you by email once your order has been shipped</p>
+           </div>
+
+           <div class="flex mt-4">
+            <a href="index.html" class="inline-block bg-blue-800 text-sm text-gray-100 p-2 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:bg-blue-900">Continue shopping</a>
+            <a href="index.html" class="inline-block bg-sky-800 text-sm text-gray-100 p-2 ml-5 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:bg-sky-900">Tarck Your Order</a>
            </div>
 
            <!-- Billing Address -->
@@ -113,11 +169,183 @@
               </div>
             </div>
 
+            <!-- Add Section -->
+          <div class="add mt-2 relative overflow-hidden shadow-2xl rounded bg-white/40">
+            <img src="img/addv.jpg" alt="add" class="w-full h-[150px] object-cover opacity-95 transition-all duration-500 hover:opacity-100">
+          </div>
+
+
         </div>
 
         <!-- Right -->
-        <div class="p-6 sm:p-8 md:p-10">
+        <div class="p-6 sm:p-8 md:p-5">
+          <div class="border border-[15px] border-gray-300 rounded-2xl max-w-full h-5 relative shadow-lg">
+            <div class="absolute max-w-full rounded min-h-screen flex items-center justify-center antialiased md:-mt-8">
+                <!-- Right-side card container (centred for demo) -->
+                <div class="w-full max-w-full">
+
+                  <div class="ticket ticket-inner bg-white border border-transparent">
+                    <!-- header -->
+                    <div class="px-8 pt-8 pb-6">
+                      <h2 class="text-2xl font-semibold text-slate-800">Order Summary</h2>
+                      <div class="mt-4 grid grid-cols-3 gap-4 text-sm text-slate-500">
+                        <div>
+                          <div class="text-xs text-slate-400">Date</div>
+                          <div class="mt-1 text-slate-700 font-medium">02 May 2023</div>
+                        </div>
+                        <div>
+                          <div class="text-xs text-slate-400">Order Number</div>
+                          <div class="mt-1 text-slate-700 font-medium">024-125478956</div>
+                        </div>
+                        <div>
+                          <div class="text-xs text-slate-400">Payment Method</div>
+                          <div class="mt-1 text-slate-700 font-medium">Mastercard</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- dashed divider -->
+                    <div class="px-6">
+                      <div class="dashed"></div>
+                    </div>
+
+                    <!-- items -->
+                    <div class="max-h-44 overflow-y-auto">
+                        <!-- Cart Item -->
+                        <div class="flex items-center rounded-xl shadow-md p-2 relative">
+                            <!-- Left: Image -->
+                            <div class="w-16 h-16 flex-shrink-0">
+                                <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                            </div>
+
+                            <!-- Middle -->
+                            <div class="flex-1 px-4">
+                                <h2 class="text-lg font-semibold text-gray-500">Product Title</h2>
+                                <div class="flex justify-between mt-2">
+                                <p class="text-md mb-2">&#2547; 25.00</p>
+                                <!-- Quantity -->
+                                <div class="flex items-center space-x-3">
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                                    <span class="font-medium text-black">1</span>
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">+</button>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!-- Cross Button -->
+                            <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-xmark text-sm"></i>
+                            </button>
+                        </div>
+                        <!-- Cart Item -->
+                        <div class="flex items-center rounded-xl shadow-md p-2 relative">
+                            <!-- Left: Image -->
+                            <div class="w-16 h-16 flex-shrink-0">
+                                <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                            </div>
+
+                            <!-- Middle -->
+                            <div class="flex-1 px-4">
+                                <h2 class="text-lg font-semibold text-gray-500">Product Title</h2>
+                                <div class="flex justify-between mt-2">
+                                <p class="text-md mb-2">&#2547; 25.00</p>
+                                <!-- Quantity -->
+                                <div class="flex items-center space-x-3">
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                                    <span class="font-medium text-black">1</span>
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">+</button>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!-- Cross Button -->
+                            <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-xmark text-sm"></i>
+                            </button>
+                        </div>
+                        <!-- Cart Item -->
+                        <div class="flex items-center rounded-xl shadow-md p-2 relative">
+                            <!-- Left: Image -->
+                            <div class="w-16 h-16 flex-shrink-0">
+                                <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                            </div>
+
+                            <!-- Middle -->
+                            <div class="flex-1 px-4">
+                                <h2 class="text-lg font-semibold text-gray-500">Product Title</h2>
+                                <div class="flex justify-between mt-2">
+                                <p class="text-md mb-2">&#2547; 25.00</p>
+                                <!-- Quantity -->
+                                <div class="flex items-center space-x-3">
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                                    <span class="font-medium text-black">1</span>
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">+</button>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!-- Cross Button -->
+                            <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-xmark text-sm"></i>
+                            </button>
+                        </div>
+                        <!-- Cart Item -->
+                        <div class="flex items-center rounded-xl shadow-md p-2 relative">
+                            <!-- Left: Image -->
+                            <div class="w-16 h-16 flex-shrink-0">
+                                <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                            </div>
+
+                            <!-- Middle -->
+                            <div class="flex-1 px-4">
+                                <h2 class="text-lg font-semibold text-gray-500">Product Title</h2>
+                                <div class="flex justify-between mt-2">
+                                <p class="text-md mb-2">&#2547; 25.00</p>
+                                <!-- Quantity -->
+                                <div class="flex items-center space-x-3">
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                                    <span class="font-medium text-black">1</span>
+                                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">+</button>
+                                </div>
+                                </div>
+                            </div>
+
+                            <!-- Cross Button -->
+                            <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-xmark text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- subtotal area -->
+                    <div class="px-6">
+                      <div class="dashed"></div>
+                    </div>
+
+                    <div class="px-6 py-5">
+                      <div class="space-y-2 text-sm text-slate-600">
+                        <div class="flex justify-between"><span>Sub Total</span><span class="text-slate-700">$100.00</span></div>
+                        <div class="flex justify-between"><span>Shipping</span><span class="text-slate-700">$2.00</span></div>
+                        <div class="flex justify-between"><span>Tax</span><span class="text-slate-700">$5.00</span></div>
+                      </div>
+
+                      <div class="mt-4 border-t pt-4 flex items-center justify-between">
+                        <div>
+                          <div class="text-sm text-slate-500">Order Total</div>
+                        </div>
+                        <div class="text-lg font-semibold text-slate-800">$107.00</div>
+                      </div>
+                    </div>
+
+                    <!-- bottom zig-zag "teeth" -->
+                    <div class="ticket-bottom-teeth"></div>
+                  </div>
+
+                </div>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
