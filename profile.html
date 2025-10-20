@@ -381,43 +381,38 @@
     </div>
 
     <!-- ===== Sidebar + Main Section ===== -->
-    <div class="grid grid-cols-1 md:grid-cols-4 md:mt-28 mt-16 relative bg-gradient-to-t from-gray-50 via-gray-100 to-gray-300">
+    <div class="grid grid-cols-1 md:grid-cols-4 min-h-screen md:mt-28 mt-16 relative bg-gradient-to-t from-gray-50 via-gray-100 to-gray-300">
 
         <!-- Sidebar -->
-        <aside id="profileSidebar" class="col-span-1 p-5 flex flex-col absolute md:static inset-y-0 left-0 w-64 md:w-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 shadow-2xl">
+        <aside id="profileSidebar" class="col-span-1 p-5 flex flex-col absolute md:static inset-y-0 left-0 w-64 md:w-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 shadow-2xl md:bg-transparent bg-white">
         
             <h2 class="text-xl font-bold mb-3 border-b border-white text-blue-900 pb-2">Welcome, John Doe!</h2>
         
             <ul id="menu" class="space-y-1 text-gray-500 font-bold text-sm">
                 <li>
-                    <button data-content="home" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded bg-blue-900 text-white hover:bg-blue-800 transition">
+                    <button data-content="profile" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded bg-blue-900 text-white hover:bg-blue-800 transition">
                         <i class="fa-regular fa-user"></i>
                         <span>Profile</span>
                     </button>
                 </li>
                 <li>
-                    <button data-content="profile" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                    <button data-content="orders" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
                         <i class="fa-solid fa-list-check"></i>
                         <span>Orders</span>
                     </button>
                 </li>
                 <li>
-                    <button data-content="events" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                    <button data-content="wishlist" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
                         <i class="fa-regular fa-heart"></i>
                         <span>Wishlist</span>
                     </button>
                 </li>
                 <li>
-                    <button data-content="settings" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                    <button data-content="addressBook" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
                         <i class="fa-regular fa-address-book"></i>
                         <span>Address Book</span>
                     </button>
                 </li>
-                <li>
-                    <button data-content="reviews" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
-                        <i class="fa-solid fa-star-half-stroke"></i>
-                        <span>Reviews</span></button>
-                    </li>
                 <li>
                     <button data-content="subscribe" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
                         <i class="fa-regular fa-rectangle-list"></i>
@@ -425,13 +420,19 @@
                     </button>
                 </li>
                 <li>
-                    <button data-content="password" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-green-700 hover:text-white transition">
+                    <button data-content="reviews" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded  hover:bg-green-700 hover:text-white transition">
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>Reviews</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="changePassword" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-green-700 hover:text-white transition">
                         <i class="fa-solid fa-unlock-keyhole"></i>
                         <span>Change Password</span>
                     </button>
                 </li>
                 <li>
-                    <button data-content="delete" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition">
+                    <button data-content="accountDelete" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition">
                         <i class="fa-solid fa-user-xmark"></i>
                         <span>Account Delete</span>
                     </button>
@@ -447,8 +448,10 @@
 
         <!-- Main Content -->
         <main id="content-area" class="col-span-3 p-8 md:mt-5">
-            <div id="home" class="content border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
-                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide">
+
+            <!-- Profile Section -->
+            <div id="profile" class="content border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
                     Profile Information
                 </h2>
                 <!-- Form -->
@@ -497,37 +500,233 @@
                 </form>
             </div>
 
-            <div id="profile" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">👤 Profile</h1>
-                <p>This is your profile information section.</p>
+            <!-- Order Table -->
+            <div id="orders" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Your Orders
+                </h2>
+                
+                <div class="max-w-6xl mx-auto p-4">
+                    <div class="overflow-x-auto rounded-2xl border border-white/10 bg-transparent backdrop-blur-sm shadow-sm">
+                        <table class="min-w-full text-sm md:text-center md:align-middle">
+                            <thead class="text-left uppercase text-xs tracking-wider text-blue-900 hidden md:table-header-group">
+                                <tr>
+                                    <th class="px-4 py-3 w-[5%]">#</th>
+                                    <th class="px-4 py-3 w-[20%]">Order Id</th>
+                                    <th class="px-4 py-3 w-[20%]">Order Date</th>
+                                    <th class="px-4 py-3 w-[20%]">Total Price</th>
+                                    <th class="px-4 py-3 w-[10%]">Payment</th>
+                                    <th class="px-4 py-3 w-[10%]">Delivery</th>
+                                    <th class="px-4 py-3 w-[10%]">Status</th>
+                                    <th class="px-4 py-3 w-[5%]">Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y divide-white/5">
+
+                                <!-- Table Item -->
+                                <tr class="block md:table-row hover:bg-white/5 transition-colors shadow mb-5">
+                                    <td class="block md:table-cell px-4 py-2 md:py-3">
+                                        <span class="ml-2 md:ml-0 hidden md:block text-gray-600">1</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Order Id:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-medium">#123</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Order Date:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600">2025-10-21</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Total:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-semibold">৳ 3,200</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Payment:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600">Card</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Delivery:</span>
+                                        <span class="ml-2 md:ml-0 inline-flex items-center px-2 py-1 text-xs rounded-full bg-yellow-600/15 text-yellow-600 border border-yellow-600/20 font-bold">
+                                        Shipped
+                                        </span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Status:</span>
+                                        <span class="ml-2 md:ml-0 inline-flex items-center px-2 py-1 text-xs rounded-full bg-green-600/15 text-green-600 border border-green-600/20 font-bold">
+                                        Paid
+                                        </span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[5%] flex">
+                                        <span class="font-semibold md:hidden text-blue-900">Action:</span>
+                                        <div class="ml-2 md:ml-0 flex gap-2">
+                                        <button class="px-3 py-1 rounded-lg text-xs bg-blue-800 hover:bg-blue-900 text-white transform hover:scale-105 transition duration-300 ease-out hover:shadow-lg">
+                                            View
+                                        </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Table Item -->
+                                <tr class="block md:table-row hover:bg-white/5 transition-colors shadow mb-5">
+                                    <td class="block md:table-cell px-4 py-2 md:py-3">
+                                        <span class="ml-2 md:ml-0 hidden md:block text-gray-600">1</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Order Id:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-medium">#123</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Order Date:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600">2025-10-21</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Total:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-semibold">৳ 3,200</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Payment:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600">Card</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Delivery:</span>
+                                        <span class="ml-2 md:ml-0 inline-flex items-center px-2 py-1 text-xs rounded-full bg-yellow-600/15 text-yellow-600 border border-yellow-600/20 font-bold">
+                                        Shipped
+                                        </span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Status:</span>
+                                        <span class="ml-2 md:ml-0 inline-flex items-center px-2 py-1 text-xs rounded-full bg-green-600/15 text-green-600 border border-green-600/20 font-bold">
+                                        Paid
+                                        </span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[5%] flex">
+                                        <span class="font-semibold md:hidden text-blue-900">Action:</span>
+                                        <div class="ml-2 md:ml-0 flex gap-2">
+                                        <button class="px-3 py-1 rounded-lg text-xs bg-blue-800 hover:bg-blue-900 text-white transform hover:scale-105 transition duration-300 ease-out hover:shadow-lg">
+                                            View
+                                        </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- Table Item -->
+                                <tr class="block md:table-row hover:bg-white/5 transition-colors shadow mb-5">
+                                    <td class="block md:table-cell px-4 py-2 md:py-3">
+                                        <span class="ml-2 md:ml-0 hidden md:block text-gray-600">1</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Order Id:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-medium">#123</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Order Date:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600">2025-10-21</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Total:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-semibold">৳ 3,200</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Payment:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600">Card</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Delivery:</span>
+                                        <span class="ml-2 md:ml-0 inline-flex items-center px-2 py-1 text-xs rounded-full bg-yellow-600/15 text-yellow-600 border border-yellow-600/20 font-bold">
+                                        Shipped
+                                        </span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[10%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Status:</span>
+                                        <span class="ml-2 md:ml-0 inline-flex items-center px-2 py-1 text-xs rounded-full bg-green-600/15 text-green-600 border border-green-600/20 font-bold">
+                                        Paid
+                                        </span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[5%] flex">
+                                        <span class="font-semibold md:hidden text-blue-900">Action:</span>
+                                        <div class="ml-2 md:ml-0 flex gap-2">
+                                        <button class="px-3 py-1 rounded-lg text-xs bg-blue-800 hover:bg-blue-900 text-white transform hover:scale-105 transition duration-300 ease-out hover:shadow-lg">
+                                            View
+                                        </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-            <div id="events" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">📅 Events</h1>
-                <p>Here you can manage and view your events.</p>
+
+            <!-- Wishlist -->
+            <div id="wishlist" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Your Wishlist
+                </h2>
             </div>
-            <div id="settings" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">⚙️ Settings</h1>
-                <p>Manage your preferences and account settings here.</p>
+
+            <!-- Address Book -->
+            <div id="addressBook" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Adress Book
+                </h2>
             </div>
-            <div id="reviews" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">⭐ Reviews</h1>
-                <p>Here are your submitted reviews.</p>
+
+            <!-- Subscribe -->
+            <div id="subscribe" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Subscription
+                </h2>
             </div>
-            <div id="subscribe" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">📜 Subscribe</h1>
-                <p>Subscribe to our newsletter and offers.</p>
+
+            <!-- Reviews -->
+            <div id="reviews" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-green-500 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Your reviews
+                </h2>
             </div>
-            <div id="password" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">🔑 Change Password</h1>
-                <p>You can change your password here.</p>
+
+            <!-- Change Password -->
+            <div id="changePassword" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-green-500 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Change Your Password
+                </h2>
             </div>
-            <div id="delete" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">🚫 Delete Account</h1>
-                <p>Are you sure you want to delete your account?</p>
+
+            <!-- Delete Account -->
+            <div id="accountDelete" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-red-800 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Delete Your Account
+                </h2>
             </div>
-            <div id="logout" class="content hidden">
-                <h1 class="text-3xl font-bold mb-4">🚪 Logout</h1>
-                <p>You have been logged out successfully.</p>
+
+            <!-- Logout -->
+            <div id="logout" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-red-800 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
+                    Logout
+                </h2>
             </div>
         </main>
     </div>
