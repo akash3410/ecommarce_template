@@ -183,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const footerTop=footer?.getBoundingClientRect().top||0;
     const windowHeight=window.innerHeight;
     const width=this.window.innerWidth;
+
     if(footerTop<windowHeight){
       if(scrollTopBtn) scrollTopBtn.style.display="block";
       if(navbar && width>=768) navbar.style.display="none";
@@ -414,10 +415,15 @@ const thanaData = {
   sylhet: ["Beanibazar", "Zakiganj", "Golapganj", "Companiganj"]
 };
 
-// Make searchable dropdown
+// Make searchable dropdown (safe version)
 function searchable(inputId, listId, callback) {
   const input = document.getElementById(inputId);
   const list = document.getElementById(listId);
+
+  if (!input || !list) {
+    console.warn(`Input or list not found for IDs: ${inputId}, ${listId}`);
+    return;
+  }
 
   input.addEventListener("focus", () => list.classList.remove("hidden"));
 
@@ -432,7 +438,7 @@ function searchable(inputId, listId, callback) {
     if (e.target.tagName === "LI") {
       input.value = e.target.textContent;
       list.classList.add("hidden");
-      if (callback) callback(e.target.dataset.value); // pass selected district
+      if (callback) callback(e.target.textContent); // pass selected district/thana
     }
   });
 
@@ -443,27 +449,32 @@ function searchable(inputId, listId, callback) {
   });
 }
 
-// Initialize district dropdown
-searchable("districtInput", "districtList", (selectedDistrict) => {
-  const thanaInput = document.getElementById("thanaInput");
-  const thanaList = document.getElementById("thanaList");
+// Initialize district dropdown only if elements exist
+if (document.getElementById("districtInput") && document.getElementById("districtList")) {
+  searchable("districtInput", "districtList", (selectedDistrict) => {
+    const thanaInput = document.getElementById("thanaInput");
+    const thanaList = document.getElementById("thanaList");
 
-  // Enable thana input
-  thanaInput.disabled = false;
-  thanaInput.value = "";
-  thanaInput.placeholder = "Search Thana...";
+    if (!thanaInput || !thanaList) return;
 
-  // Clear old thana list
-  thanaList.innerHTML = "";
+    // Enable thana input
+    thanaInput.disabled = false;
+    thanaInput.value = "";
+    thanaInput.placeholder = "Search Thana...";
 
-  // Populate new thana list
-  thanaData[selectedDistrict].forEach(thana => {
-    const li = document.createElement("li");
-    li.textContent = thana;
-    li.className = "px-3 py-2 hover:bg-blue-100 cursor-pointer";
-    thanaList.appendChild(li);
+    // Clear old thana list
+    thanaList.innerHTML = "";
+
+    // Populate new thana list
+    const thanas = thanaData[selectedDistrict.toLowerCase()] || [];
+    thanas.forEach(thana => {
+      const li = document.createElement("li");
+      li.textContent = thana;
+      li.className = "px-3 py-2 hover:bg-blue-100 cursor-pointer";
+      thanaList.appendChild(li);
+    });
+
+    // Re-init searchable for thana
+    searchable("thanaInput", "thanaList");
   });
-
-  // Re-init searchable for thana
-  searchable("thanaInput", "thanaList");
-});
+}

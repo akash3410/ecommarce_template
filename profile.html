@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>ECommarce — Templates</title>
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- My CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <!-- TOP NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full shadow-md z-50 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-16 flex items-center">
+
+            <!-- Mobile hamburger -->
+            <button id="menu-btn" class="md:hidden text-gray-700 p-2">
+            <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Serarchbar -->
+            <!-- <div class="w-full md:w-1/3 flex justify-center md:justify-between">
+            <div class="relative w-full max-w-md">
+                <input 
+                type="text" 
+                placeholder="Search..." 
+                class="w-full rounded-2xl border border-gray-300 bg-white py-3 pl-12 pr-4 text-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-400 outline-none transition"
+                />
+                
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    class="h-5 w-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" 
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+                </svg>
+            </div>
+            </div> -->
+            <!-- For this use in bottom dive md:justify-center & w-1/2 all three -->
+
+
+
+            <!-- logo -->
+            <div class="w-full md:w-1/2 flex justify-center md:justify-between">
+            <a href="index.html" class="text-lg md:text-2xl font-bold text-[#006400]">MyLogo</a>
+            </div>
+
+            <!-- Right Icons) -->
+            <div class="flex items-end justify-end w-1/2 space-x-3">
+            <!-- Hidden on mobile: desktop icons -->
+            <div class="hidden md:flex items-center space-x-3">
+
+                <!-- Desktop search icon (toggles the expanding input) -->
+                <div class="relative">
+                <button id="desktop-search-btn" class="text-gray-700 hover:text-gray-800 p-1 focus:outline-none transform hover:scale-110 transition duration-300">
+                    <i class="fa-solid fa-magnifying-glass text-xl mt-1"></i>
+                </button>
+
+                <!-- expanding search container (desktop) -->
+                <!-- initially width 0 on md screens; toggled to w-56 -->
+                <div id="desktop-search"
+                    class="hidden md:flex items-center overflow-hidden w-0 transition-all duration-300 absolute right-0 top-full -mt-10">
+                    <form id="desktop-search-form" class="flex items-center w-full">
+                    <input id="desktop-search-input" type="text"
+                        class="w-full border border-gray-300 rounded-l px-3 py-2 focus:outline-none"
+                        placeholder="Search..." />
+                    <button type="submit" class="bg-gray-600 text-white px-4 py-2 rounded-r hover:bg-gray-700">Search</button>
+                    </form>
+                </div>
+                </div>
+
+                <!-- cart icon -->
+                <a href="cart.html" class="text-gray-700 hover:text-gray-800 transform hover:scale-110 transition duration-300">
+                <span class="ms-3 me-2">&#2547;  1000</span>
+                <i class="fa-solid fa-cart-shopping text-xl"></i>
+                </a>
+
+                <!-- user icon -->
+                <a href="login_form.html" class="text-gray-700 hover:text-gray-800 transform hover:scale-110 transition duration-300">
+                <i class="fa-solid fa-user text-xl"></i>
+                </a>
+
+            </div>
+
+            <!-- Mobile top-right profile icon -->
+            <div class="md:hidden">
+                <a href="cart.html" class="text-gray-700 p-2">
+                <span class="me-3">&#2547;  0</span>
+                <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
+            </div>
+
+        </div>
+
+        <!-- Horizontal Role -->
+        <div class="absolute left-0 w-full">
+            <hr class="border-t border-gray-600">
+        </div>
+
+        <!-- menu desktop / hamburger mobile -->
+        <div class="w-full flex justify-center items-center md:mt-5 md:mb-2">
+
+            <!-- Desktop menu links -->
+            <div class="hidden md:flex space-x-6 items-center">
+            <!-- <div class="relative group">
+                <a href="#" class="text-gray-700 hover:text-blue-600 uppercase text-xl">Home</a>
+            </div> -->
+
+            <!-- dropdown -->
+            <div class="relative group inline-block">
+                <button class="text-gray-700 group-hover:text-blue-600 uppercase text-lg text-blue-600 font-semibold">
+                MENS
+                </button>
+
+                <!-- dropdown menu -->
+                <div
+                class="absolute left-1/2 top-full hidden group-hover:grid grid-cols-4 gap-6 bg-white shadow-lg rounded-lg p-6 w-[800px] bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] transform -translate-x-1/2 z-50">
+
+                <!-- part 1 -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Clothing</h3>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Shirts</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">T-Shirts</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Pants</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Jeans</a>
+                </div>
+
+                <!-- part 2 -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Accessories</h3>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Watches</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Belts</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Wallets</a>
+                </div>
+
+                <!-- part 3 -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Shoes</h3>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Sneakers</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Formal</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Sandals</a>
+                </div>
+
+                <!-- part 4 (image) -->
+                <div class="flex items-center justify-center">
+                    <img src="img/na1.webp" alt="Mens Collection"
+                    class="rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+                </div>
+
+                </div>
+            </div>
+
+            <!-- dropdown -->
+            <div class="relative group inline-block">
+                <button class="text-gray-700 group-hover:text-blue-600 uppercase text-lg text-blue-600 font-semibold">
+                SUNNAH ESSENTIAL
+                </button>
+
+                <!-- dropdown menu -->
+                <div class="absolute left-1/2 top-full hidden group-hover:grid grid-cols-3 gap-6 bg-white shadow-lg rounded-lg p-6 w-[800px] bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] transform -translate-x-1/2 z-50">
+
+                <!-- part 1 -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Clothing</h3>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Shirts</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">T-Shirts</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Pants</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Jeans</a>
+                </div>
+
+                <!-- part 2 -->
+                <div>
+                    <h3 class="font-semibold text-gray-800 mb-2">Accessories</h3>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Watches</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Belts</a>
+                    <a href="category_details.html" class="block px-2 py-1 text-gray-700 hover:text-blue-600">Wallets</a>
+                </div>
+
+                <!-- part 4 (image) -->
+                <div class="flex items-end justify-end right-0">
+                    <img src="img/cat2.jpeg" alt="Mens Collection"
+                    class="h-full shadow-md hover:scale-105 transition-transform duration-300">
+                </div>
+
+                </div>
+            </div>
+
+            <!-- dropdown -->
+            <div class="relative group">
+                <button class="text-gray-700 group-hover:text-blue-600 uppercase text-lg text-blue-600 font-semibold">ACCESSORIES</button>
+                <div class="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded w-80 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+                <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] hover:text-blue-600" href="category_details.html"> Bags </a>
+                <a class="block px-4 py-2 text-gray-700 hover:bg-gradient-to-t from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] hover:text-blue-600"
+                    href="category_details.html">Watches</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE SLIDE MENU -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-72 h-full bg-white shadow transform -translate-x-full transition-transform duration-300 z-50 md:hidden rounded-[10px]">
+
+        <!-- Header -->
+        <div
+        class="p-4 border-b flex justify-between items-center bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]">
+        <a href="index.html" class="text-lg font-semibold text-[#006400]">MyLogo</a>
+        <button id="close-menu" class="text-lg">✕</button>
+        </div>
+
+        <!-- Menu Content -->
+        <div class="p-4 space-y-4 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] overflow-y-auto h-[calc(100%-64px)]">
+
+        <!-- Main: MENS -->
+        <div>
+            <button class="flex justify-between items-center w-full font-medium submenu-btn">
+            MENS <span class="text-blue-600 toggle-icon">+</span>
+            </button>
+            <div class="submenu hidden pl-4 mt-2 space-y-3">
+
+            <!-- Clothing -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Clothing <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="category_details.html" class="block">Shirts</a>
+                <a href="category_details.html" class="block">T-Shirts</a>
+                <a href="category_details.html" class="block">Pants</a>
+                <a href="category_details.html" class="block">Jeans</a>
+                </div>
+            </div>
+
+            <!-- Accessories -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Accessories <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="category_details.html" class="block">Watches</a>
+                <a href="category_details.html" class="block">Belts</a>
+                <a href="category_details.html" class="block">Wallets</a>
+                </div>
+            </div>
+
+            <!-- Shoes -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Shoes <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="category_details.html" class="block">Sneakers</a>
+                <a href="category_details.html" class="block">Formal</a>
+                <a href="category_details.html" class="block">Sandals</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Main: Sunnah Essentials -->
+        <div>
+            <button class="flex justify-between items-center w-full font-medium submenu-btn">
+            Sunnah Essentials <span class="text-blue-600 toggle-icon">+</span>
+            </button>
+            <div class="submenu hidden pl-4 mt-2 space-y-3">
+
+            <!-- Clothing -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Clothing <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="category_details.html" class="block">Shirts</a>
+                <a href="category_details.html" class="block">T-Shirts</a>
+                <a href="category_details.html" class="block">Pants</a>
+                <a href="category_details.html" class="block">Jeans</a>
+                </div>
+            </div>
+
+            <!-- Accessories -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Accessories <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="category_details.html" class="block">Watches</a>
+                <a href="category_details.html" class="block">Belts</a>
+                <a href="category_details.html" class="block">Wallets</a>
+                </div>
+            </div>
+
+            <!-- Shoes -->
+            <div>
+                <button class="flex justify-between items-center w-full submenu-btn font-medium">
+                Shoes <span class="text-blue-600 toggle-icon">+</span>
+                </button>
+                <div class="submenu hidden pl-4 mt-2 space-y-2">
+                <a href="category_details.html" class="block">Sneakers</a>
+                <a href="category_details.html" class="block">Formal</a>
+                <a href="category_details.html" class="block">Sandals</a>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Main: Accessories -->
+        <div>
+            <button class="flex justify-between items-center w-full font-medium submenu-btn">
+            Accessories <span class="text-blue-600 toggle-icon">+</span>
+            </button>
+            <div class="submenu hidden pl-4 mt-2 space-y-3">
+                <a href="category_details.html" class="block capitalize">bags</a>
+                <a href="category_details.html" class="block capitalize">Wathches</a>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- MOBILE SEARCH BAR (slide down) -->
+    <div id="mobile-search-bar"
+        class="fixed top-16 left-0 w-full bg-white p-3 shadow-md transform -translate-y-full transition-transform duration-300 z-40 md:hidden">
+        <form id="mobile-search-form" class="flex gap-2">
+        <input id="mobile-search-input" type="text" placeholder="Search..."
+            class="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none" />
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
+        </form>
+    </div>
+
+    <!-- BOTTOM NAV (Mobile) -->
+    <div
+        class="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] border-t shadow-md flex justify-around py-2 md:hidden z-50">
+        <a href="index.html" class="flex flex-col items-center text-gray-700 text-xs">
+        <i class="fa-regular fa-house text-lg mb-1"></i>
+        Home
+        </a>
+
+        <button id="mobile-search-btn" class="flex flex-col items-center text-gray-700 text-xs">
+        <i id="mobile-search-icon" class="fa-solid fa-magnifying-glass text-lg mb-1"></i>
+        <span id="mobile-search-text">Search</span>
+        </button>
+
+        <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <i class="fa-regular fa-heart text-lg mb-1"></i>
+        Wishlist
+        </a>
+
+        <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+            <i class="fa-regular fa-user text-lg mb-1"></i>
+        Profile
+        </a>
+
+        <!--For Profile only-->
+        <!-- Mobile-only Sidebar Toggle Image -->
+        <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+            <img id="sidebarToggleIcon" src="img/addv.jpg" alt="Profile" class="w-7 h-7 rounded-full cursor-pointer md:hidden border-3 border-blue-800 mb-1">
+        John Doe
+        </a>
+    </div>
+
+    <!-- ===== Sidebar + Main Section ===== -->
+    <div class="grid grid-cols-1 md:grid-cols-4 md:mt-28 mt-16 relative bg-gradient-to-t from-gray-50 via-gray-100 to-gray-300">
+
+        <!-- Sidebar -->
+        <aside id="profileSidebar" class="col-span-1 p-5 flex flex-col absolute md:static inset-y-0 left-0 w-64 md:w-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 shadow-2xl">
+        
+            <h2 class="text-xl font-bold mb-3 border-b border-white text-blue-900 pb-2">Welcome, John Doe!</h2>
+        
+            <ul id="menu" class="space-y-1 text-gray-500 font-bold text-sm">
+                <li>
+                    <button data-content="home" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded bg-blue-900 text-white hover:bg-blue-800 transition">
+                        <i class="fa-regular fa-user"></i>
+                        <span>Profile</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="profile" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Orders</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="events" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                        <i class="fa-regular fa-heart"></i>
+                        <span>Wishlist</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="settings" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                        <i class="fa-regular fa-address-book"></i>
+                        <span>Address Book</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="reviews" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>Reviews</span></button>
+                    </li>
+                <li>
+                    <button data-content="subscribe" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-blue-800 transition">
+                        <i class="fa-regular fa-rectangle-list"></i>
+                        <span>Subscribe</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="password" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-green-700 hover:text-white transition">
+                        <i class="fa-solid fa-unlock-keyhole"></i>
+                        <span>Change Password</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="delete" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition">
+                        <i class="fa-solid fa-user-xmark"></i>
+                        <span>Account Delete</span>
+                    </button>
+                </li>
+                <li>
+                    <button data-content="logout" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition">
+                        <i class="fa-solid fa-power-off"></i>
+                        <span>Logout</span>
+                    </button>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="content-area" class="col-span-3 p-8 md:mt-5">
+            <div id="home" class="content border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
+                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide">
+                    Profile Information
+                </h2>
+                <!-- Form -->
+                <form id="loginFormPass" class="flex flex-col gap-3 w-full px-5 md:px-1 mt-5 md:mt-2">
+                    <!-- Name -->
+                    <div class="relative">
+                        <input type="text" id="name" class="peer w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-700" placeholder=" " required />
+                        <label for="name" class="absolute left-3 top-2.5 text-gray-500 text-base bg-white px-1 transition-all">Name</label>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <!-- Email -->
+                        <div class="relative col-span-1">
+                            <input type="email" id="email" class="peer w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-700" placeholder=" " required />
+                            <label for="email" class="absolute left-3 top-2.5 text-gray-500 text-base bg-white px-1 transition-all">Email</label>
+                        </div>
+                        <!-- Phone -->
+                        <div class="relative col-span-1">
+                            <input type="number" id="phone" class="peer w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-700" placeholder=" " required />
+                            <label for="Phone" class="absolute left-3 top-2.5 text-gray-500 text-base bg-white px-1 transition-all">Phone</label>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="relative">
+                        <input type="text" id="address" class="peer w-full border border-gray-300 rounded-md p-8 focus:outline-none focus:border-blue-700" placeholder=" " required />
+                        <label for="name" class="absolute left-3 top-5 text-gray-500 text-base bg-white px-1 transition-all">Address</label>
+                    </div>
+
+                    <!-- Upload Picture -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1">
+                        <div id="uploadForm" class="w-full md:w-32 h-32 col-span-1">
+                            <label class="border-2 border-dashed border-gray-300 rounded-lg p-2 text-center cursor-pointer hover:border-blue-500 transition w-full h-full flex items-center justify-center">
+                                <span id="fileLabel" class="text-xs text-gray-500 text-center overflow-hidden">Upload Profile</span>
+                                <input type="file" id="fileInput" accept="image/*" class="hidden">
+                            </label>
+                        </div>
+
+                        <!-- Image Preview Box -->
+                        <div id="preview" class="col-span-2 rounded p-2 w-full md:w-32 h-32 border border-gray-300">
+                            <img id="prev_img" src="img/cat1.jpg" alt="Preview" class="w-full h-full object-contain">
+                        </div>
+                        <!-- Login Button -->
+                        <button type="submit" class="my-auto bg-blue-900 text-white rounded-md hover:bg-blue-800 transition duration-300 font-semibold h-10">Update</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="profile" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">👤 Profile</h1>
+                <p>This is your profile information section.</p>
+            </div>
+            <div id="events" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">📅 Events</h1>
+                <p>Here you can manage and view your events.</p>
+            </div>
+            <div id="settings" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">⚙️ Settings</h1>
+                <p>Manage your preferences and account settings here.</p>
+            </div>
+            <div id="reviews" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">⭐ Reviews</h1>
+                <p>Here are your submitted reviews.</p>
+            </div>
+            <div id="subscribe" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">📜 Subscribe</h1>
+                <p>Subscribe to our newsletter and offers.</p>
+            </div>
+            <div id="password" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">🔑 Change Password</h1>
+                <p>You can change your password here.</p>
+            </div>
+            <div id="delete" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">🚫 Delete Account</h1>
+                <p>Are you sure you want to delete your account?</p>
+            </div>
+            <div id="logout" class="content hidden">
+                <h1 class="text-3xl font-bold mb-4">🚪 Logout</h1>
+                <p>You have been logged out successfully.</p>
+            </div>
+        </main>
+    </div>
+
+
+
+    <!-- Cart Button -->
+    <div id="myCartBtn" class="fixed md:bottom-60 bottom-52 right-2 px-3 py-3 rounded-xl shadow-lg hover:bg-gray-100 transition transform hover:scale-105 z-50 flex flex-col items-center space-y-1 border border-blue-700 cursor-pointer
+        -translate-y-20 opacity-0">
+        
+        <!-- Cart Icon -->
+        <span class="text-2xl">
+        <i class="fa-brands fa-opencart text-blue-600"></i>
+        </span>
+        
+        <!-- Cart Amount -->
+        <span id="cartAmount" class="text-sm font-bold text-blue-600">&#2547;  120</span>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="fixed top-0 right-0 h-full w-100% sm:w-80 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#000000] text-gray-300 shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
+        
+        <!-- Header -->
+        <div class="p-4 border-b flex justify-between items-center">
+            <h2 class="text-lg font-semibold">Shoping Cart</h2>
+            <button id="closeCart" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+        </div>
+
+        <div class="max-h-96 overflow-y-auto space-y-2 pr-2">
+            <!-- Cart Items -->
+            <div class="flex items-center rounded-xl shadow-md p-4 relative">
+        
+                <!-- Left: Image -->
+                <div class="w-16 h-16 flex-shrink-0">
+                    <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                </div>
+        
+                <!-- Middle: Title, Price, Quantity -->
+                <div class="flex-1 px-4">
+                <a href="product_details.html" class="">
+                    <h2 class="text-md font-bold text-gray-500 hover:text-blue-700">Product Title</h2>
+                </a>
+                
+                <div class="flex justify-between mt-2">
+                    <p class="text-md mb-2">&#2547; 25.00</p>
+        
+                    <!-- Quantity -/+ Buttons -->
+                    <div class="flex items-center space-x-3">
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                    <span class="font-medium tex-bold text-black">1</span>
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transitionduration-300">+</button>
+                    </div>
+                </div>
+                </div>
+        
+                <!-- Right: Cross Button -->
+                <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transitionduration-300">
+                <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+        
+            </div>
+            <!-- Cart Items -->
+            <div class="flex items-center rounded-xl shadow-md p-4 relative">
+        
+                <!-- Left: Image -->
+                <div class="w-16 h-16 flex-shrink-0">
+                <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                </div>
+        
+                <!-- Middle: Title, Price, Quantity -->
+                <div class="flex-1 px-4">
+                <a href="product_details.html" class="">
+                    <h2 class="text-md font-bold text-gray-500 hover:text-blue-700">Product Title</h2>
+                </a>
+                
+                <div class="flex justify-between mt-2">
+                    <p class="text-md mb-2">&#2547; 25.00</p>
+        
+                    <!-- Quantity -/+ Buttons -->
+                    <div class="flex items-center space-x-3">
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                    <span class="font-medium tex-bold text-black">1</span>
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transitionduration-300">+</button>
+                    </div>
+                </div>
+                </div>
+        
+                <!-- Right: Cross Button -->
+                <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transitionduration-300">
+                <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+        
+            </div>
+            <!-- Cart Items -->
+            <div class="flex items-center rounded-xl shadow-md p-4 relative">
+        
+                <!-- Left: Image -->
+                <div class="w-16 h-16 flex-shrink-0">
+                <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                </div>
+        
+                <!-- Middle: Title, Price, Quantity -->
+                <div class="flex-1 px-4">
+                <a href="product_details.html" class="">
+                    <h2 class="text-md font-bold text-gray-500 hover:text-blue-700">Product Title</h2>
+                </a>
+                
+                <div class="flex justify-between mt-2">
+                    <p class="text-md mb-2">&#2547; 25.00</p>
+        
+                    <!-- Quantity -/+ Buttons -->
+                    <div class="flex items-center space-x-3">
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                    <span class="font-medium tex-bold text-black">1</span>
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transitionduration-300">+</button>
+                    </div>
+                </div>
+                </div>
+        
+                <!-- Right: Cross Button -->
+                <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transitionduration-300">
+                <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+        
+            </div>
+            <!-- Cart Items -->
+            <div class="flex items-center rounded-xl shadow-md p-4 relative">
+        
+                <!-- Left: Image -->
+                <div class="w-16 h-16 flex-shrink-0">
+                <img src="img/cat1.jpg" alt="Product" class="w-full h-full object-cover rounded-lg">
+                </div>
+        
+                <!-- Middle: Title, Price, Quantity -->
+                <div class="flex-1 px-4">
+                <a href="product_details.html" class="">
+                    <h2 class="text-md font-bold text-gray-500 hover:text-blue-700">Product Title</h2>
+                </a>
+                
+                <div class="flex justify-between mt-2">
+                    <p class="text-md mb-2">&#2547; 25.00</p>
+        
+                    <!-- Quantity -/+ Buttons -->
+                    <div class="flex items-center space-x-3">
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transition duration-300">-</button>
+                    <span class="font-medium tex-bold text-black">1</span>
+                    <button class="w-5 h-5 flex items-center justify-center border rounded-full hover:text-white hover:bg-blue-700 transform hover:scale-110 transitionduration-300">+</button>
+                    </div>
+                </div>
+                </div>
+        
+                <!-- Right: Cross Button -->
+                <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transitionduration-300">
+                <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+        
+            </div>
+        </div>
+        
+
+        
+        <!-- Footer -->
+        <div class="p-4 border-t mt-3 rounded">
+        <div class="flex justify-between mb-3">
+            <span class="font-semibold">Sub Total</span>
+            <span class="font-semibold">&#2547; 120</span>
+        </div>
+        <button class="w-full bg-[#293d44] border border-white text-white py-2 px-2 rounded-lg hover:bg-[#0f2027] mt-3 mb-3 transform hover:scale-105 hover:shadow-xl transition duration-500 ease-in-out">
+            View your Cart
+        </button>
+        <button class="w-full bg-[#067c59] border border-white text-white py-2 px-2 rounded-lg hover:bg-[#00AE7A] transform hover:scale-105 hover:shadow-xl transition duration-500 ease-in-out">
+            Proceed to Checkout
+        </button>
+        </div>
+    </div>
+
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" 
+        class="fixed md:bottom-44 bottom-36 right-2 bg-[#2B5161] text-white p-3 rounded-2xl shadow-lg 
+            hover:bg-[#11232B] transition transform hover:scale-110 hidden z-50">
+        ⬆
+        Scroll to Top
+    </button>
+
+    <footer class="bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#000000] text-gray-300 mb-16 md:mb-0">
+        <!-- First Part: Logo Center -->
+        <div class="text-center py-5 border-b border-gray-700">
+            <img src="img/logo2.jpeg" alt="Logo" class="mx-auto w-36 h-20 rounded-xl animate-pulse drop-shadow-lg" />
+            <p class="mx-auto md:px-20 lg:px-60 sm:px-5 mt-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam tenetur dignissimos, iure placeat quidem dictae.</p>
+        </div>
+
+        <!-- Second Part: Main Footer -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-12 grid md:grid-cols-3 gap-10">
+        
+            <!-- Left: Contact + Map -->
+            <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Contact Us</h3>
+                <ul class="space-y-2 text-sm mb-4">
+                <li>📧 support@mycompany.com</li>
+                <li>📞 +880 1234-567890</li>
+                <li>📍 Dhaka, Bangladesh</li>
+                </ul>
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                <!-- Google Map Embed -->
+                <!-- <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!..." 
+                    width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe> -->
+                </div>
+            </div>
+
+            <!-- Middle: Quick Links + Legal -->
+            <div class="grid grid-cols-2 gap-8">
+                <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Home</a></li>
+                    <li><a href="#" class="hover:text-white transition">Shop</a></li>
+                    <li><a href="#" class="hover:text-white transition">About</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                </ul>
+                </div>
+                <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Legal</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-white transition">Refund Policy</a></li>
+                </ul>
+                </div>
+            </div>
+
+            <!-- Right: Social + Payments -->
+            <div class="flex flex-col items-start space-y-8">
+                <div>
+                <h3 class="text-lg font-semibold text-white mb-4">Follow Us</h3>
+                <div class="flex space-x-5 text-2xl">
+                    <a href="#" class="hover:text-blue-400 transition transform hover:scale-110">
+                    <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#" class="hover:text-sky-400 transition transform hover:scale-110">
+                    <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="hover:text-red-600 transition transform hover:scale-110">
+                    <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-600 transition transform hover:scale-110">
+                    <i class="fa-brands fa-square-linkedin"></i>
+                    </a>
+                </div>
+                </div>
+                <div>
+                <h3 class="text-lg font-semibold text-white mb-4">We Accept</h3>
+                <div class="flex space-x-4">
+                    <img src="img/p1.jpeg" alt="Visa" class="w-16 h-8" />
+                    <img src="img/p2.jpeg" alt="MasterCard" class="w-16 h-8" />
+                    <img src="img/p3.jpeg" alt="PayPal" class="w-16 h-8" />
+                    <img src="img/p4.png" alt="PayPal" class="w-16 h-8" />
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom -->
+        <div class="flex justify-between items-center w-full p-6 border-t border-gray-700">
+            <div class="">
+                <p class="text-sm font-semibold text-gray-500"> Design & Development by: 
+                <a href="">@arifuzzaman-akash</a>
+                </p>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-semibold text-gray-500"> © 2025 MyCompany. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- My JS -->
+    <script src="js/script.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/login_reg.js"></script>
+</body>
+
+</html>
