@@ -381,7 +381,7 @@
     </div>
 
     <!-- ===== Sidebar + Main Section ===== -->
-    <div class="grid grid-cols-1 md:grid-cols-4 min-h-screen md:mt-28 mt-16 relative bg-gradient-to-t from-gray-50 via-gray-100 to-gray-300">
+    <div class="grid grid-cols-1 md:grid-cols-4 md:min-h-screen md:mt-28 mt-16 relative bg-gradient-to-t from-gray-50 via-gray-100 to-gray-300">
 
         <!-- Sidebar -->
         <aside id="profileSidebar" class="col-span-1 p-5 flex flex-col absolute md:static inset-y-0 left-0 w-64 md:w-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-40 shadow-2xl md:bg-transparent bg-white">
@@ -685,6 +685,521 @@
                 <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
                     Your Wishlist
                 </h2>
+
+                <!-- Items -->
+                <div class="relative md:max-w-full max-w-6xl mx-auto px-2 md:px-0" id="naSliderWrapper">
+                    <!-- Slider Wrapper -->
+                    <div class="overflow-hidden">
+                        <div id="sliderTrack" class="flex gap-4 transition-transform duration-500">
+
+                        <!-- ===== CARD 1 ===== -->
+                        <div class="flex-shrink-0 w-64 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                                <img src="img/na1.webp" class="w-full h-64 object-cover transition duration-700 group-hover:opacity-0">
+                                <img src="img/na2.webp" class="w-full h-64 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+
+                                <!-- Icons (on hover) -->
+                                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                                    <button class="bg-red-700/15 text-red-900 rounded-full shadow hover:bg-red-600/15 hover:text-red-500">
+                                        <i class="fa-solid fa-xmark text-xs"></i>
+                                    </button>
+                                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
+                                        <i data-feather="eye"></i>
+                                    </button>
+                                    <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                                        <i data-feather="heart"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Card Content -->
+                                <div class="p-4">
+                                    <a href="product_details.html">
+                                    <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                                    <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                                    </a>
+                                    <div class="flex justify-between items-center mt-8">
+                                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== CARD 2 ===== -->
+                        <div class="flex-shrink-0 w-64 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                            <img src="img/na1.webp" class="w-full h-64 object-cover transition duration-700 group-hover:opacity-0">
+                            <img src="img/na2.webp"
+                                class="w-full h-64 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                            <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                                <button class="bg-red-700/15 text-red-900 rounded-full shadow hover:bg-red-600/15 hover:text-red-500">
+                                    <i class="fa-solid fa-xmark text-xs"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                                <i data-feather="eye"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                                <i data-feather="heart"></i>
+                                </button>
+                            </div>
+
+                            <!-- Card Content -->
+                            <div class="p-4">
+                                <a href="product_details.html">
+                                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                                <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                                </a>
+                                <div class="flex justify-between items-center mt-8">
+                                <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                                <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== CARD 3 ===== -->
+                        <div class="flex-shrink-0 w-64 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                            <img src="img/na1.webp" class="w-full h-64 object-cover transition duration-700 group-hover:opacity-0">
+                            <img src="img/na2.webp"
+                                class="w-full h-64 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                            <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                                <button class="bg-red-700/15 text-red-900 rounded-full shadow hover:bg-red-600/15 hover:text-red-500">
+                                    <i class="fa-solid fa-xmark text-xs"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal3">
+                                <i data-feather="eye"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                                <i data-feather="heart"></i>
+                                </button>
+                            </div>
+
+                            <!-- Card Content -->
+                            <div class="p-4">
+                                <a href="product_details.html">
+                                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                                <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                                </a>
+                                <div class="flex justify-between items-center mt-8">
+                                <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                                <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== CARD 4 ===== -->
+                        <div class="flex-shrink-0 w-64 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                            <img src="img/na1.webp" class="w-full h-64 object-cover transition duration-700 group-hover:opacity-0">
+                            <img src="img/na2.webp"
+                                class="w-full h-64 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                            <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                                <button class="bg-red-700/15 text-red-900 rounded-full shadow hover:bg-red-600/15 hover:text-red-500">
+                                    <i class="fa-solid fa-xmark text-xs"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal4">
+                                <i data-feather="eye"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                                <i data-feather="heart"></i>
+                                </button>
+                            </div>
+
+                            <!-- Card Content -->
+                            <div class="p-4">
+                                <a href="product_details.html">
+                                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                                <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                                </a>
+                                <div class="flex justify-between items-center mt-8">
+                                <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                                <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== CARD 5 ===== -->
+                        <div class="flex-shrink-0 w-64 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                            <img src="img/na1.webp" class="w-full h-64 object-cover transition duration-700 group-hover:opacity-0">
+                            <img src="img/na2.webp"
+                                class="w-full h-64 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                            <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                                <button class="bg-red-700/15 text-red-900 rounded-full shadow hover:bg-red-600/15 hover:text-red-500">
+                                    <i class="fa-solid fa-xmark text-xs"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal5">
+                                <i data-feather="eye"></i>
+                                </button>
+                                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                                <i data-feather="heart"></i>
+                                </button>
+                            </div>
+
+                            <!-- Card Content -->
+                            <div class="p-4">
+                                <a href="product_details.html">
+                                <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                                <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                                </a>
+                                <div class="flex justify-between items-center mt-8">
+                                <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                                <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <button id="naprev"
+                        class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">‹</button>
+                    <button id="nanext"
+                        class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">›</button>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex gap-10 items-center justify-center mt-6">
+                    <button class="px-5 py-2 rounded-xl border border-red-600/50 text-red-700 font-bold bg-red-600/10 hover:bg-red-600 hover:text-white hover:shadow-lg transition-all duration-300 ease-out transform hover:-translate-y-1 text-sm">
+                        Clear All
+                    </button>
+
+                    <button class="px-5 py-2 rounded-xl border border-blue-700/50 text-blue-900 font-bold bg-blue-700/10 hover:bg-blue-700 hover:text-white hover:shadow-lg transition-all duration-300 ease-out transform hover:-translate-y-1 text-sm">
+                        Continue Shopping
+                    </button>
+                </div>
+
+                <!-- ===== MODALS ===== -->
+                <div id="modal1" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+                    <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Left -->
+                    <div class="flex flex-col md:flex-row">
+
+                        <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                        <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        </div>
+
+                        <!-- Large Image Container -->
+                        <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                        <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+
+                        <!-- Lens -->
+                        <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="flex flex-col justify-between">
+                        <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                        <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                        <div class="mb-4 flex items-center space-x-2">
+                            <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                            <div class="w-4 h-4 bg-black rounded-full"></div>
+                        </div>
+                        <!-- Sizes -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                            <div class="flex space-x-2">
+                            <label><input type="radio" name="size1" value="M" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="L" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XL</div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XXL</div>
+                            </label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flex space-x-3 mt-4 md:mt-0">
+                        <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                        <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                        <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                            <i data-feather="heart"></i>
+                        </button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div id="modal2" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+                    <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Left -->
+                    <div class="flex flex-col md:flex-row">
+
+                        <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                        <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        </div>
+
+                        <!-- Large Image Container -->
+                        <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                        <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+
+                        <!-- Lens -->
+                        <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="flex flex-col justify-between">
+                        <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                        <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                        <div class="mb-4 flex items-center space-x-2">
+                            <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                            <div class="w-4 h-4 bg-black rounded-full"></div>
+                        </div>
+                        <!-- Sizes -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                            <div class="flex space-x-2">
+                            <label><input type="radio" name="size1" value="M" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="L" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XL</div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XXL</div>
+                            </label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flex space-x-3 mt-4 md:mt-0">
+                        <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                        <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                        <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                            <i data-feather="heart"></i>
+                        </button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div id="modal3" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+                    <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Left -->
+                    <div class="flex flex-col md:flex-row">
+
+                        <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                        <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        </div>
+
+                        <!-- Large Image Container -->
+                        <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                        <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+
+                        <!-- Lens -->
+                        <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="flex flex-col justify-between">
+                        <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                        <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                        <div class="mb-4 flex items-center space-x-2">
+                            <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                            <div class="w-4 h-4 bg-black rounded-full"></div>
+                        </div>
+                        <!-- Sizes -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                            <div class="flex space-x-2">
+                            <label><input type="radio" name="size1" value="M" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="L" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XL</div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XXL</div>
+                            </label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flex space-x-3 mt-4 md:mt-0">
+                        <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                        <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                        <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                            <i data-feather="heart"></i>
+                        </button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div id="modal4" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+                    <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Left -->
+                    <div class="flex flex-col md:flex-row">
+
+                        <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                        <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        </div>
+
+                        <!-- Large Image Container -->
+                        <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                        <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+
+                        <!-- Lens -->
+                        <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="flex flex-col justify-between">
+                        <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                        <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                        <div class="mb-4 flex items-center space-x-2">
+                            <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                            <div class="w-4 h-4 bg-black rounded-full"></div>
+                        </div>
+                        <!-- Sizes -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                            <div class="flex space-x-2">
+                            <label><input type="radio" name="size1" value="M" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="L" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XL</div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XXL</div>
+                            </label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flex space-x-3 mt-4 md:mt-0">
+                        <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                        <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                        <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                            <i data-feather="heart"></i>
+                        </button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div id="modal5" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+                    <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Left -->
+                    <div class="flex flex-col md:flex-row">
+
+                        <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                        <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                        </div>
+
+                        <!-- Large Image Container -->
+                        <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                        <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+
+                        <!-- Lens -->
+                        <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right -->
+                    <div class="flex flex-col justify-between">
+                        <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                        <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                        <div class="mb-4 flex items-center space-x-2">
+                            <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                            <div class="w-4 h-4 bg-black rounded-full"></div>
+                        </div>
+                        <!-- Sizes -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                            <div class="flex space-x-2">
+                            <label><input type="radio" name="size1" value="M" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="L" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                                </div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XL</div>
+                            </label>
+                            <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                                <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                                XXL</div>
+                            </label>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="flex space-x-3 mt-4 md:mt-0">
+                        <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                        <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                        <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                            <i data-feather="heart"></i>
+                        </button>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
             </div>
 
             <!-- Address Book -->
