@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
     card.addEventListener('mouseleave',()=>card.querySelectorAll('h3').forEach(el=>el.classList.remove('bounce-up')));
   });
 
-  // ---------------- Product modal / quick view ----------------
+  // ---------------- Product modal ----------------
   document.querySelectorAll('.open-modal').forEach(btn=>{
     btn.addEventListener('click',()=>{
       const target=document.getElementById(btn.dataset.target);

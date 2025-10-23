@@ -432,19 +432,45 @@
                     </button>
                 </li>
                 <li>
-                    <button data-content="accountDelete" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition">
+                    <button class="w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition open-modal" data-target="accountDeleteModal">
                         <i class="fa-solid fa-user-xmark"></i>
                         <span>Account Delete</span>
                     </button>
                 </li>
                 <li>
-                    <button data-content="logout" class="menu-item w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition">
+                    <button class="w-full text-left flex items-center gap-1 p-2 rounded hover:bg-red-700 hover:text-white transition open-modal" data-target="logoutModal">
                         <i class="fa-solid fa-power-off"></i>
                         <span>Logout</span>
                     </button>
                 </li>
             </ul>
         </aside>
+
+        <!-- Account Delete Modal -->
+        <div id="accountDeleteModal" class="modal fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
+            <div class="bg-white rounded-xl shadow-lg p-6 w-100% text-center">
+                <h2 class="text-lg font-semibold text-red-700 mb-3">Delete Account?</h2>
+                <p class="text-sm text-gray-600">This action can’t be undone!</p>
+                <p class="text-sm text-gray-600 mb-5">Once deleted, all your data will be permanently removed!</p>
+                <div class="flex justify-center gap-3">
+                    <button class="cancel-btn px-4 py-1 rounded border border-gray-300 hover:bg-gray-100 close-modal">Cancel</button>
+                    <button class="confirm-btn px-4 py-1 rounded bg-red-600 text-white hover:bg-red-700">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Modal -->
+        <div id="logoutModal" class="modal fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden transition-opacity duration-300">
+            <div class="bg-white rounded-xl shadow-lg p-6 w-100% text-center">
+                <h2 class="text-lg font-semibold text-red-700 mb-3 tracking-wide">Logout?</h2>
+                <p class="text-sm text-gray-600">Done for now?</p>
+                <p class="text-sm text-gray-600 mb-5 px-5">We’ll be here when you’re ready to come back.</p>
+                <div class="flex justify-center gap-3">
+                    <button class="cancel-btn px-4 py-1 rounded border border-gray-300 hover:bg-gray-100 close-modal">Cancel</button>
+                    <button class="confirm-btn px-4 py-1 rounded bg-red-600 text-white hover:bg-red-700">Logout</button>
+                </div>
+            </div>
+        </div>
 
         <!-- Main Content -->
         <main id="content-area" class="col-span-3 p-8 md:mt-5">
@@ -1395,11 +1421,48 @@
                 </div>
             </div>
 
-            <!-- Subscribe -->
+            <!-- Newsletter / Subscription -->
             <div id="subscribe" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
-                <h2 class="bg-gray-200 text-blue-900 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
-                    Subscription
-                </h2>
+                <section class="relative bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 py-20 overflow-hidden">
+                    
+                    <!-- Floating Images -->
+                    <img src="img/floating2.webp" class="absolute bottom-0 right-32 w-32 h-32 opacity-30 pointer-events-none">
+                    <img src="img/floating8.png" class="absolute top-0 left-96 w-32 h-32 opacity-100 pointer-events-none">
+                    <img src="img/floating5.png" class="absolute bottom-5 left-20 w-32 h-32 opacity-100 pointer-events-none">
+                    <img src="img/floating7.png" class="absolute top-8 right-48 w-32 h-32 opacity-30 pointer-events-none">
+                    <img src="img/floating4.png" class="absolute top-10 left-5 w-64 h-28 opacity-100 pointer-events-none rotate-0">
+
+                    <div class="max-w-3xl mx-auto text-center px-4 relative z-10">
+                    <!-- Title -->
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-600 mb-4 animate-wave">
+                        Stay Updated!
+                    </h2>
+                    <!-- Description -->
+                    <p class="text-gray-600 mb-12 animate-wave-delayed">
+                        Subscribe now and never miss our latest updates, offers, and cupons.
+                    </p>
+
+                    <!-- Form Container -->
+                    <div class="relative w-full sm:w-2/3 mx-auto">
+                        <form action="">
+                        <!-- Search / Input -->
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            class="w-full px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00AE7A] relative z-10"
+                        />
+
+                        <!-- Button on top of search bar -->
+                        <button 
+                            type="submit" 
+                            class="absolute top-0 right-0 px-6 py-3 bg-[#008f63] text-white font-semibold rounded-md shadow-lg hover:bg-[#00C17A] transition-all duration-300 z-20"
+                        >
+                            Subscribe
+                        </button>
+                        </form>
+                    </div>
+                    </div>
+                </section>
             </div>
 
             <!-- Reviews -->
@@ -1407,27 +1470,108 @@
                 <h2 class="bg-gray-200 text-green-500 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
                     Your reviews
                 </h2>
+
+                <div class="max-w-6xl mx-auto p-4">
+                    <div class="overflow-x-auto rounded-2xl border border-white/10 bg-transparent backdrop-blur-sm shadow-sm">
+                        <table class="min-w-full text-sm md:text-center md:align-middle">
+                            <thead class="text-left uppercase text-xs tracking-wider text-blue-900 hidden md:table-header-group md:text-center">
+                                <tr>
+                                    <th class="px-4 py-3 w-[5%]">#</th>
+                                    <th class="px-4 py-3 w-[20%]">Product Name</th>
+                                    <th class="px-4 py-3 w-[20%]">Your Ratting</th>
+                                    <th class="px-4 py-3 w-[20%]">Comment</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="divide-y divide-white/5">
+                                <!-- Table Item -->
+                                <tr class="block md:table-row hover:bg-white/5 transition-colors shadow mb-5">
+                                    <td class="block md:table-cell px-4 py-2 md:py-3">
+                                        <span class="ml-2 md:ml-0 hidden md:block text-gray-600">1</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Product Name:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-medium">Docker Cap</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Ratting:</span>
+                                        <span class="ml-2 md:ml-0 text-yellow-600 text-lg">*****</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Comment:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, corporis.</span>
+                                    </td>
+                                </tr>
+
+                                <!-- Table Item -->
+                                <tr class="block md:table-row hover:bg-white/5 transition-colors shadow mb-5">
+                                    <td class="block md:table-cell px-4 py-2 md:py-3">
+                                        <span class="ml-2 md:ml-0 hidden md:block text-gray-600">1</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Product Name:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-medium">Docker Cap</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Ratting:</span>
+                                        <span class="ml-2 md:ml-0 text-yellow-600 text-lg">*****</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Comment:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, corporis.</span>
+                                    </td>
+                                </tr>
+
+                                <!-- Table Item -->
+                                <tr class="block md:table-row hover:bg-white/5 transition-colors shadow mb-5">
+                                    <td class="block md:table-cell px-4 py-2 md:py-3">
+                                        <span class="ml-2 md:ml-0 hidden md:block text-gray-600">1</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Product Name:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-medium">Docker Cap</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Ratting:</span>
+                                        <span class="ml-2 md:ml-0 text-yellow-600 text-lg">*****</span>
+                                    </td>
+
+                                    <td class="block md:table-cell px-4 py-2 md:py-3 md:w-[20%]">
+                                        <span class="font-semibold md:hidden text-blue-900">Comment:</span>
+                                        <span class="ml-2 md:ml-0 text-gray-600 font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, corporis.</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <!-- Change Password -->
             <div id="changePassword" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
                 <h2 class="bg-gray-200 text-green-500 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
-                    Change Your Password
+                    Change Password
                 </h2>
-            </div>
 
-            <!-- Delete Account -->
-            <div id="accountDelete" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
-                <h2 class="bg-gray-200 text-red-800 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
-                    Delete Your Account
-                </h2>
-            </div>
+                <!-- Form -->
+                <form class="flex flex-col gap-3 w-full px-5 md:px-1 mt-5 md:mt-2">
+                    <!-- Name -->
+                    <div class="relative w-full md:w-1/2">
+                        <input type="text" id="email" class="peer w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-700" placeholder="Email or Phone" required />
+                    </div>
+                    <p class="text-xs text-gray-500 -mt-2 italic"><span class="font-bold">NB: </span> Type your phone or email that you use for login here to get code</p>
 
-            <!-- Logout -->
-            <div id="logout" class="content hidden border border-white md:p-8 py-8 relative shadow-2xl rounded-lg">
-                <h2 class="bg-gray-200 text-red-800 px-5 py-1 w-fit rounded-lg shadow-md absolute -top-4 left-1/2 -translate-x-1/2 text-center tracking-wide uppercase">
-                    Logout
-                </h2>
+                    <!-- Submit Button -->
+                    <button type="submit" class="my-auto bg-blue-900 text-white rounded-md hover:bg-blue-800 transition duration-300 font-semibold h-10 w-1/3 md:w-1/4">Send Code</button>
+                </form>
             </div>
         </main>
     </div>
