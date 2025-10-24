@@ -1,52 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>File Upload Preview</title>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-
-<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
-
-  <!-- Left: Form Box -->
-  <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col justify-center">
-    <h2 class="text-2xl font-semibold mb-6 text-center">Upload Your File</h2>
-    <form id="uploadForm" class="flex flex-col gap-4">
-      <label class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:border-blue-500 transition">
-        <span id="fileLabel" class="text-gray-500">Click to select a file</span>
-        <input type="file" id="fileInput" accept="image/*" class="hidden">
-      </label>
-      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Upload</button>
-    </form>
-  </div>
-
-  <!-- Right: Image Preview -->
-  <div class="flex items-center justify-center border border-gray-300 rounded p-4 bg-gray-50">
-    <img id="preview" src="" alt="Preview" class="max-h-64 max-w-full object-contain hidden">
-  </div>
-
-</div>
-
-<script>
-  const fileInput = document.getElementById('fileInput');
-  const preview = document.getElementById('preview');
-  const fileLabel = document.getElementById('fileLabel');
-
-  fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
-    if(file) {
-      fileLabel.textContent = file.name; // show filename
-      const reader = new FileReader();
-      reader.onload = e => {
-        preview.src = e.target.result;
-        preview.classList.remove('hidden');
-      }
-      reader.readAsDataURL(file);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expanding Sidebar</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Smooth scale animation */
+    .menu-enter {
+      transform: scale(0.5);
+      opacity: 0;
     }
-  });
-</script>
+    .menu-enter-active {
+      transform: scale(1);
+      opacity: 1;
+      transition: all 0.25s ease-out;
+    }
+    .menu-exit {
+      transform: scale(1);
+      opacity: 1;
+    }
+    .menu-exit-active {
+      transform: scale(0.5);
+      opacity: 0;
+      transition: all 0.2s ease-in;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
 
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-6 py-3 bg-blue-700 text-white relative">
+    <h1 class="text-lg font-bold">My Website</h1>
+
+    <!-- Menu Button -->
+    <div class="relative">
+      <button id="menuBtn" class="text-2xl focus:outline-none">
+        abc
+      </button>
+
+      <!-- Expanding Menu -->
+      <div id="menuBox" class="hidden absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-xl overflow-hidden z-50 origin-top-right">
+        <ul class="flex flex-col divide-y divide-gray-100">
+          <li><a href="#" class="block px-4 py-2 hover:bg-blue-50">Home</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-blue-50">Profile</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-blue-50">Settings</a></li>
+          <li><a href="#" class="block px-4 py-2 hover:bg-blue-50 text-red-600">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <main class="flex-grow p-6 text-gray-700">
+    <p>Click the top-right icon to see the expanding sidebar effect!</p>
+  </main>
+
+  <script>
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menuBox");
+    let open = false;
+
+    btn.addEventListener("click", () => {
+      open = !open;
+      if (open) {
+        menu.classList.remove("hidden");
+        menu.classList.add("menu-enter");
+        setTimeout(() => {
+          menu.classList.add("menu-enter-active");
+          menu.classList.remove("menu-enter");
+        }, 10);
+      } else {
+        menu.classList.add("menu-exit-active");
+        setTimeout(() => {
+          menu.classList.add("hidden");
+          menu.classList.remove("menu-exit-active");
+        }, 200);
+      }
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!btn.contains(e.target) && !menu.contains(e.target)) {
+        open = false;
+        menu.classList.add("hidden");
+      }
+    });
+  </script>
 </body>
 </html>

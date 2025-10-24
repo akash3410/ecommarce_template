@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+SAS:wght@400;500;600;700&display=swap');
+
+.playwrite {
+  font-family: "Playwrite DE SAS", cursive;
+}
+
+
 body {
   font-family: 'Inter', sans-serif;
 }
