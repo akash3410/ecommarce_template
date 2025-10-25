@@ -1,5 +1,38 @@
+// ------------- Top Navbar show & hide on scroll ------------------
+let lastScrollTop = 0;
+const topNavbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", function () {
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (currentScroll > lastScrollTop) {
+    navbar.style.transform = "translateY(-100%)";
+  }
+  else {
+    navbar.style.transform = "translateY(0)";
+  }
+
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
+// ---------- Scroll Animate Section (Global)-----------
+  const scrollElements = document.querySelectorAll('.scroll-animate');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.remove('opacity-0', 'translate-y-10');
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0 });
+
+  scrollElements.forEach(el => observer.observe(el));
+
+
+// ---------------- Mobile slide menu toggle ----------------
 document.addEventListener("DOMContentLoaded", function() {
-  // ---------------- Mobile slide menu toggle ----------------
   const menuBtn = document.getElementById('menu-btn');
   const closeMenu = document.getElementById('close-menu');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -186,10 +219,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if(footerTop<windowHeight){
       if(scrollTopBtn) scrollTopBtn.style.display="block";
-      if(navbar && width>=768) navbar.style.display="none";
     } else {
       if(scrollTopBtn) scrollTopBtn.style.display="none";
-      if(navbar) navbar.style.display="block";
     }
   });
 
@@ -478,3 +509,32 @@ if (document.getElementById("districtInput") && document.getElementById("distric
     searchable("thanaInput", "thanaList");
   });
 }
+
+// Popup Banner
+document.addEventListener("DOMContentLoaded", function() {
+  const banner = document.getElementById("popupBanner");
+  const bannerCard = banner.querySelector("div");
+  const closeBtn = document.getElementById("closeBanner");
+
+  // Show banner after 0.5s
+  setTimeout(() => {
+    banner.classList.remove("hidden", "opacity-0");
+    banner.classList.add("opacity-100");
+    bannerCard.classList.remove("scale-95");
+    bannerCard.classList.add("scale-100");
+  }, 1000);
+
+  // Auto close after 5 seconds
+  setTimeout(() => {
+    banner.classList.replace("opacity-100", "opacity-0");
+    bannerCard.classList.replace("scale-100", "scale-95");
+    setTimeout(() => banner.classList.add("hidden"), 500);
+  }, 7500);
+
+  // Manual close
+  closeBtn.addEventListener("click", () => {
+    banner.classList.replace("opacity-100", "opacity-0");
+    bannerCard.classList.replace("scale-100", "scale-95");
+    setTimeout(() => banner.classList.add("hidden"), 500);
+  });
+});

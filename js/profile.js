@@ -43,4 +43,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+   // ===== Open specific section from URL parameter =====
+  const params = new URLSearchParams(window.location.search);
+  const openTab = params.get("tab");
+
+  if (openTab) {
+    const targetItem = document.querySelector(`.menu-item[data-content="${openTab}"]`);
+    if (targetItem) {
+      targetItem.click(); // sidebar click ট্রিগার করে content দেখাবে
+    }
+  }
+
 });

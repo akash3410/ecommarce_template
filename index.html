@@ -30,8 +30,40 @@
 
 <body>
 
+  <!-- Popup Banner -->
+  <div id="popupBanner" class="fixed inset-0 flex justify-center items-center z-50 hidden bg-black/50 transition-opacity duration-500 ease-out">
+
+    <!-- Modal Card -->
+    <div class="relative w-11/12 max-w-11/12 h-5/6 max-h-5/6 rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-all duration-500 ease-out">
+
+      <!-- Background Image + Overlay -->
+      <div class="absolute inset-0 bg-cover bg-center" 
+          style="background-image: url('img/one.webp');">
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative p-8 text-center text-white flex flex-col items-center justify-center h-full">
+        <!-- Close Button -->
+        <button id="closeBanner" class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300 z-50">&times;</button>
+
+        <h2 class="text-2xl sm:text-3xl font-extrabold mb-4 drop-shadow-lg">
+          Special Offer!
+        </h2>
+        <p class="text-xs sm:text-xl mb-6 drop-shadow-md max-w-2xl">
+          Get 20% off on your first order. Limited time only — don’t miss out!
+        </p>
+        <a href="category_details.html"
+          class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold py-1 px-5 rounded-xl text-lg sm:text-xl hover:scale-105 transform transition">
+          Shop Now
+        </a>
+      </div>
+
+    </div>
+  </div>
+
   <!-- TOP NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full shadow-md z-50 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC]" id="navbar">
+  <nav class="fixed top-0 left-0 w-full shadow-md z-40 bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] transition-transform duration-500" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-16 flex items-center">
 
@@ -41,9 +73,9 @@
         </button>
 
         <!-- Logo -->
-        <div class="w-full md:w-1/2 flex items-center justify-center md:justify-between gap-3">
+        <div class="w-full md:w-1/2 flex items-center justify-center md:justify-start gap-3">
           <a href="index.html" class=""><img src="img/logo_fin.png" alt="Logo" class="w-14 h-14 object-contain transition-transform duration-500 hover:scale-110 hover:drop-shadow-[0_0_10px_#dddddd] rounded-full shadow p-1"></a>
-          <a href="index.html" class="text-2xl font-extrabold text-blue-900 uppercase tracking-wide hover:text-blue-800 transition-all duration-300 hidden md:block playwrite transition-transform duration-500 hover:scale-110 rounded-full px-4 py-2 shadow">Dress Hub</a>
+          <a href="index.html" class=" text-2xl font-extrabold uppercase tracking-wide hidden md:block text-blue-900 hover:text-blue-800 transition-all duration-300 playwrite transition-transform duration-500 hover:scale-110 rounded-full px-5 py-2 shadow">Dress Hub</a>
         </div>
 
         <!-- Right Icon -->
@@ -76,7 +108,7 @@
             </a>
 
             <!-- Wishlist -->
-            <a href="#" class="text-blue-900 hover:text-blue-800 transform hover:scale-110 transition duration-300 rounded-full p-1 shadow hover:bg-gray-100">
+            <a href="profile.html?tab=wishlist" data-content="wishlist" class="text-blue-900 hover:text-blue-800 transform hover:scale-110 transition duration-300 rounded-full p-1 shadow hover:bg-gray-100">
               <i class="fa-solid fa-heart text-2xl"></i>
             </a>
 
@@ -335,8 +367,7 @@
   </div>
 
   <!-- BOTTOM NAV (Mobile) -->
-  <div
-    class="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] border-t shadow-md flex justify-around py-2 md:hidden z-50">
+  <div class="fixed bottom-0 left-0 w-full bg-gradient-to-r from-[#DCDCDC] via-[#FFFFF0] via-[#F8F8FF] to-[#DCDCDC] border-t shadow-md flex justify-around py-2 md:hidden z-50">
     <a href="index.html" class="flex flex-col items-center text-gray-700 text-xs">
       <i class="fa-regular fa-house text-lg mb-1"></i>
       Home
@@ -347,12 +378,12 @@
       <span id="mobile-search-text">Search</span>
     </button>
 
-    <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+    <a href="profile.html?tab=wishlist" class="flex flex-col items-center text-gray-700 text-xs">
       <i class="fa-regular fa-heart text-lg mb-1"></i>
       Wishlist
     </a>
 
-    <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+    <a href="login_form.html" class="flex flex-col items-center text-gray-700 text-xs">
       <i class="fa-regular fa-user text-lg mb-1"></i>
       Profile
     </a>
@@ -378,10 +409,12 @@
             class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200">
             Best Products at the Best Price
           </p>
-          <button
-            class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
-            Shop Now
-          </button>
+          <a href="category_details.html">
+            <button
+              class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
+              Shop Now
+            </button>
+          </a>
         </div>
 
       </div>
@@ -400,10 +433,12 @@
             class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-100">
             Trendy & Stylish Products
           </p>
-          <button
-            class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
-            Explore Now
-          </button>
+          <a href="category_details.html">
+            <button
+              class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
+              Explore Now
+            </button>
+          </a>
         </div>
 
       </div>
@@ -422,10 +457,12 @@
             class="slide-text text-white text-sm md:text-lg mt-2 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-200">
             Grab Your Favorite Items
           </p>
-          <button
-            class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
-            Shop Sale
-          </button>
+          <a href="category_details.html">
+            <button
+              class="slide-text mt-4 px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 opacity-0 translate-y-10 transition-all duration-700 ease-out delay-400">
+              Shop Sale
+            </button>
+          </a>
         </div>
 
       </div>
@@ -482,291 +519,307 @@
   </div>
 
   <!-- Shop by Categories -->
-  <section class="mirror-gradient">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <section class="bg-gradient-to-t from-gray-100 via-gray-200 to-gray-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 scroll-animate opacity-0 translate-y-10 transition-all duration-500 ease-out">
+      
       <!-- Heading -->
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Shop By Category</h2>
+      <h2 class="text-3xl font-extrabold text-blue-900 tracking-wider mb-8 text-center">
+        Explore by Category
+        <i class="fa-solid fa-layer-group bg-clip-text text-transparent bg-gradient-to-t from-green-500 via-red-500 to-green-500"></i>
+      </h2>
 
       <!-- Cards Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- Card 1 -->
-        <a href="category_details.html"
-          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat4.webp" alt="Card 1"
-            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
-                      opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat4.webp" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
             <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
 
         <!-- Card 2 -->
-        <a href="category_details.html"
-          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat3.jpeg" alt="Card 2"
-            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
-                      opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
-            <h3 class="text-xl font-bold mb-2">Card Title 2</h3>
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat1.jpg" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
 
         <!-- Card 3 -->
-        <a href="category_details.html"
-          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat2.jpeg" alt="Card 3"
-            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
-                      opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
-            <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat2.jpeg" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
 
         <!-- Card 4 -->
-        <a href="category_details.html"
-          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat1.jpg" alt="Card 3"
-            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
-                      opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
-            <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat3.jpeg" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
+
         <!-- Card 5 -->
-        <a href="category_details.html"
-          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat1.jpg" alt="Card 3"
-            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
-                      opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
-            <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat1.jpg" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
+
         <!-- Card 6 -->
-        <a href="category_details.html"
-          class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
-          <img src="img/cat1.jpg" alt="Card 3"
-            class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out motion-safe:group-hover:scale-110">
-          <div
-            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center 
-                      opacity-0 translate-y-5 transition-all duration-500 motion-safe:group-hover:opacity-100 motion-safe:group-hover:translate-y-0">
-            <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat2.jpeg" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
             <p class="text-base">Smooth zoom and animated text on hover.</p>
           </div>
         </a>
+
+        <!-- Card 7 -->
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat1.jpg" alt="Card 7" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
+            <p class="text-base">Smooth zoom and animated text on hover.</p>
+          </div>
+        </a>
+
+        <!-- Card 8 -->
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat2.jpeg" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
+            <p class="text-base">Smooth zoom and animated text on hover.</p>
+          </div>
+        </a>
+
+        <!-- Card 9 -->
+        <a href="category_details.html" class="relative h-64 w-full overflow-hidden rounded-2xl shadow-xl cursor-pointer group block">
+          <img src="img/cat3.jpeg" alt="Card 1" class="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-110 max-md:scale-105">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-6 text-center opacity-0 translate-y-5 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 max-md:opacity-100 max-md:translate-y-0">
+            <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
+            <p class="text-base">Smooth zoom and animated text on hover.</p>
+          </div>
+        </a>
+
       </div>
     </div>
   </section>
 
   <!-- New Arrival -->
   <section class="mirror-gradient-90 px-4 sm:px-6 lg:px-10 lg:py-12 py-8">
-    <div class="flex items-center justify-between">
-      <h1 class="text-3xl text-bold">New Arrival</h1>
-      <button
-        class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">View
-        All</button>
-    </div>
-
-    <div class="relative md:max-w-full max-w-6xl mt-10 mx-auto" id="naSliderWrapper">
-      <!-- Slider Wrapper -->
-      <div class="overflow-hidden">
-        <div id="sliderTrack" class="flex gap-8 transition-transform duration-500">
-
-          <!-- ===== CARD 1 ===== -->
-          <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-              <img src="img/na2.webp"
-                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
-                  <i data-feather="eye"></i>
-                </button>
-                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                  <i data-feather="heart"></i>
-                </button>
-              </div>
-
-              <!-- Card Content -->
-              <div class="p-4">
-                <a href="product_details.html">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                </a>
-                <div class="flex justify-between items-center mt-8">
-                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== CARD 2 ===== -->
-          <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-              <img src="img/na2.webp"
-                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
-                  <i data-feather="eye"></i>
-                </button>
-                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                  <i data-feather="heart"></i>
-                </button>
-              </div>
-
-              <!-- Card Content -->
-              <div class="p-4">
-                <a href="product_details.html">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                </a>
-                <div class="flex justify-between items-center mt-8">
-                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== CARD 3 ===== -->
-          <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-              <img src="img/na2.webp"
-                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
-                  <i data-feather="eye"></i>
-                </button>
-                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                  <i data-feather="heart"></i>
-                </button>
-              </div>
-
-              <!-- Card Content -->
-              <div class="p-4">
-                <a href="product_details.html">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                </a>
-                <div class="flex justify-between items-center mt-8">
-                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== CARD 4 ===== -->
-          <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-              <img src="img/na2.webp"
-                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
-                  <i data-feather="eye"></i>
-                </button>
-                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                  <i data-feather="heart"></i>
-                </button>
-              </div>
-
-              <!-- Card Content -->
-              <div class="p-4">
-                <a href="product_details.html">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                </a>
-                <div class="flex justify-between items-center mt-8">
-                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== CARD 5 ===== -->
-          <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-              <img src="img/na2.webp"
-                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
-                  <i data-feather="eye"></i>
-                </button>
-                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                  <i data-feather="heart"></i>
-                </button>
-              </div>
-
-              <!-- Card Content -->
-              <div class="p-4">
-                <a href="product_details.html">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                </a>
-                <div class="flex justify-between items-center mt-8">
-                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ===== CARD 6 ===== -->
-          <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-            <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-              <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-              <img src="img/na2.webp"
-                class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-              <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
-                  <i data-feather="eye"></i>
-                </button>
-                <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                  <i data-feather="heart"></i>
-                </button>
-              </div>
-
-              <!-- Card Content -->
-              <div class="p-4">
-                <a href="product_details.html">
-                  <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
-                  <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                </a>
-                <div class="flex justify-between items-center mt-8">
-                  <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                  <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
+    <div class="scroll-animate opacity-0 translate-y-10 transition-all duration-500 ease-out">
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-extrabold text-blue-900 tracking-wider">
+          Latest Picks
+          <i class="fa-solid fa-plane-arrival bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></i>
+        </h1>
+        <a href="category_details.html">
+          <button class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">
+            View All
+          </button>
+        </a>
       </div>
 
-      <!-- Navigation Buttons -->
-      <button id="naprev"
-        class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">‹</button>
-      <button id="nanext"
-        class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">›</button>
-    </div>
+      <div class="relative md:max-w-full max-w-6xl mt-10 mx-auto" id="naSliderWrapper">
+        <!-- Slider Wrapper -->
+        <div class="overflow-hidden">
+          <div id="sliderTrack" class="flex gap-8 transition-transform duration-500">
 
+            <!-- ===== CARD 1 ===== -->
+            <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                <img src="img/na2.webp"
+                  class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                    <i data-feather="eye"></i>
+                  </button>
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                    <i data-feather="heart"></i>
+                  </button>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-4">
+                  <a href="product_details.html">
+                    <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                    <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                  </a>
+                  <div class="flex justify-between items-center mt-8">
+                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CARD 2 ===== -->
+            <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                <img src="img/na2.webp"
+                  class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                    <i data-feather="eye"></i>
+                  </button>
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                    <i data-feather="heart"></i>
+                  </button>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-4">
+                  <a href="product_details.html">
+                    <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                    <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                  </a>
+                  <div class="flex justify-between items-center mt-8">
+                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CARD 3 ===== -->
+            <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                <img src="img/na2.webp"
+                  class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                    <i data-feather="eye"></i>
+                  </button>
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                    <i data-feather="heart"></i>
+                  </button>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-4">
+                  <a href="product_details.html">
+                    <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                    <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                  </a>
+                  <div class="flex justify-between items-center mt-8">
+                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CARD 4 ===== -->
+            <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                <img src="img/na2.webp"
+                  class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                    <i data-feather="eye"></i>
+                  </button>
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                    <i data-feather="heart"></i>
+                  </button>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-4">
+                  <a href="product_details.html">
+                    <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                    <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                  </a>
+                  <div class="flex justify-between items-center mt-8">
+                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CARD 5 ===== -->
+            <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                <img src="img/na2.webp"
+                  class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                    <i data-feather="eye"></i>
+                  </button>
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                    <i data-feather="heart"></i>
+                  </button>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-4">
+                  <a href="product_details.html">
+                    <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                    <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                  </a>
+                  <div class="flex justify-between items-center mt-8">
+                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ===== CARD 6 ===== -->
+            <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+              <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                <img src="img/na2.webp"
+                  class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+                <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal2">
+                    <i data-feather="eye"></i>
+                  </button>
+                  <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                    <i data-feather="heart"></i>
+                  </button>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-4">
+                  <a href="product_details.html">
+                    <h3 class="text-lg font-bold text-gray-800 hover:text-[#00AE7A] transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow">Premium Shoes</h3>
+                    <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                  </a>
+                  <div class="flex justify-between items-center mt-8">
+                    <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                    <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button id="naprev"
+          class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">‹</button>
+        <button id="nanext"
+          class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">›</button>
+      </div>
+    </div>
 
     <!-- ===== MODALS placed outside slider (fixed center) ===== -->
     <div id="modal1" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
@@ -1098,365 +1151,372 @@
 
   <!-- Best Sell -->
   <section class="mirror-gradient px-4 sm:px-6 lg:px-10 lg:py-12 py-8">
-    <!-- Hedings -->
-    <div class="flex items-center justify-between">
-      <h1 class="text-3xl text-bold">Best Sell</h1>
-      <button
-        class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">View
-        All</button>
-    </div>
-
-    <!-- Main Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 mt-10">
-      <!-- Left Span -->
-      <div class="relative group lg:col-span-1 rounded border-r-2 border-gray-300 overflow-hidden cursor-pointer hidden lg:block mr-4">
-        <!-- image -->
-        <img src="img/na1.webp"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125">
-
-        <!-- diagonal light -->
-        <div class="absolute inset-0 overflow-hidden">
-          <div class="shine"></div>
-        </div>
+    <div class="scroll-animate opacity-0 translate-y-10 transition-all duration-500 ease-out">
+      <!-- Hedings -->
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-extrabold text-blue-900 tracking-wider">
+          Top Favorites
+          <i class="fa-solid fa-trophy text-[30px] bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-yellow-300 to-red-100"></i>
+        </h1>
+        <a href="category_details.html">
+          <button class="px-4 py-2 text-[#00AE7A] rounded-lg hover:bg-[#00AE7A] hover:text-white border-2 border-black-300">
+            View All
+          </button>
+        </a>
       </div>
-
-      <!-- Right Span -->
-      <div class="lg:col-span-3">
-        <div class="relative md:max-w-full max-w-6xl mx-auto" id="bssliderWrapper">
-          <!-- Slider Wrapper -->
-          <div class="overflow-hidden">
-            <div id="bsSliderTrack" class="flex gap-8 transition-transform duration-500">
-
-              <!-- ===== CARD 1 ===== -->
-              <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-                <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                  <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                  <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-
-                  <!-- Eye -->
-                  <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
-                      <i data-feather="eye"></i>
-                    </button>
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                    </button>
-                  </div>
-
-                  <!-- Card Content -->
-                  <div class="p-4">
-                    <a href="product_details.html">
-                      <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
-                      <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                    </a>
-
-                    <div class="flex justify-between items-center mt-8">
-                      <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                      <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ===== CARD 2 ===== -->
-              <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-                <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                  <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                  <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-
-                  <!-- Eye -->
-                  <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
-                      <i data-feather="eye"></i>
-                    </button>
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                    </button>
-                  </div>
-
-                  <!-- Card Content -->
-                  <div class="p-4">
-                    <a href="product_details.html">
-                      <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
-                      <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                    </a>
-
-                    <div class="flex justify-between items-center mt-8">
-                      <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                      <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ===== CARD 3 ===== -->
-              <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-                <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                  <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                  <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-
-                  <!-- Eye -->
-                  <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
-                      <i data-feather="eye"></i>
-                    </button>
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                    </button>
-                  </div>
-
-                  <!-- Card Content -->
-                  <div class="p-4">
-                    <a href="product_details.html">
-                      <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
-                      <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                    </a>
-
-                    <div class="flex justify-between items-center mt-8">
-                      <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                      <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ===== CARD 4 ===== -->
-              <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
-                <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
-                  <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
-                  <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
-
-                  <!-- Eye -->
-                  <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
-                      <i data-feather="eye"></i>
-                    </button>
-                    <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
-                      <i data-feather="heart"></i>
-                    </button>
-                  </div>
-
-                  <!-- Card Content -->
-                  <div class="p-4">
-                    <a href="product_details.html">
-                      <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
-                      <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
-                    </a>
-
-                    <div class="flex justify-between items-center mt-8">
-                      <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
-                      <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Navigation Buttons -->
-          <button id="bsprev" class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">‹
-          </button>
-          <button id="bsnext" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">›
-          </button>
-        </div>
-
-        <!-- ===== MODALS placed outside slider (fixed center) ===== -->
-        <div id="modal1" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
-          <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Left -->
-              <div class="flex flex-col md:flex-row">
-
-                <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
-                  <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                  <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                </div>
-
-                <!-- Large Image Container -->
-                <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
-                  <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
-
-                  <!-- Lens -->
-                  <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
-                </div>
-              </div>
-
-              <!-- Right -->
-              <div class="flex flex-col justify-between">
-                <div>
-                  <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
-                  <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
-                  <div class="mb-4 flex items-center space-x-2">
-                    <p class="text-sm font-medium text-gray-700">Color: Black</p>
-                    <div class="w-4 h-4 bg-black rounded-full"></div>
-                  </div>
-                  <!-- Sizes -->
-                  <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
-                    <div class="flex space-x-2">
-                      <label><input type="radio" name="size1" value="M" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
-                        </div>
-                      </label>
-                      <label><input type="radio" name="size1" value="L" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
-                        </div>
-                      </label>
-                      <label><input type="radio" name="size1" value="XL" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                          XL</div>
-                      </label>
-                      <label><input type="radio" name="size1" value="XXL" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                          XXL</div>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex space-x-3 mt-4 md:mt-0">
-                  <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                  <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                    <i data-feather="heart"></i>
-                  </button>
-                </div>
-                <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
-              </div>
-            </div>
+  
+      <!-- Main Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 mt-10">
+        <!-- Left Span -->
+        <div class="relative group lg:col-span-1 rounded border-r-2 border-gray-300 overflow-hidden cursor-pointer hidden lg:block mr-4">
+          <!-- image -->
+          <img src="img/na1.webp"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125">
+  
+          <!-- diagonal light -->
+          <div class="absolute inset-0 overflow-hidden">
+            <div class="shine"></div>
           </div>
         </div>
-
-        <!-- ===== MODALS placed outside slider (fixed center) ===== -->
-        <div id="modal2" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
-          <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Left -->
-              <div class="flex flex-col md:flex-row">
-
-                <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
-                  <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                  <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                </div>
-
-                <!-- Large Image Container -->
-                <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
-                  <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
-
-                  <!-- Lens -->
-                  <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
-                </div>
-              </div>
-
-              <!-- Right -->
-              <div class="flex flex-col justify-between">
-                <div>
-                  <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
-                  <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
-                  <div class="mb-4 flex items-center space-x-2">
-                    <p class="text-sm font-medium text-gray-700">Color: Black</p>
-                    <div class="w-4 h-4 bg-black rounded-full"></div>
-                  </div>
-                  <!-- Sizes -->
-                  <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
-                    <div class="flex space-x-2">
-                      <label><input type="radio" name="size1" value="M" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
-                        </div>
-                      </label>
-                      <label><input type="radio" name="size1" value="L" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
-                        </div>
-                      </label>
-                      <label><input type="radio" name="size1" value="XL" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                          XL</div>
-                      </label>
-                      <label><input type="radio" name="size1" value="XXL" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                          XXL</div>
-                      </label>
+  
+        <!-- Right Span -->
+        <div class="lg:col-span-3">
+          <div class="relative md:max-w-full max-w-6xl mx-auto" id="bssliderWrapper">
+            <!-- Slider Wrapper -->
+            <div class="overflow-hidden">
+              <div id="bsSliderTrack" class="flex gap-8 transition-transform duration-500">
+  
+                <!-- ===== CARD 1 ===== -->
+                <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                  <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                    <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                    <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+  
+                    <!-- Eye -->
+                    <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
+                        <i data-feather="eye"></i>
+                      </button>
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                        <i data-feather="heart"></i>
+                      </button>
+                    </div>
+  
+                    <!-- Card Content -->
+                    <div class="p-4">
+                      <a href="product_details.html">
+                        <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
+                        <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                      </a>
+  
+                      <div class="flex justify-between items-center mt-8">
+                        <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                        <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="flex space-x-3 mt-4 md:mt-0">
-                  <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                  <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                    <i data-feather="heart"></i>
-                  </button>
+  
+                <!-- ===== CARD 2 ===== -->
+                <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                  <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                    <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                    <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+  
+                    <!-- Eye -->
+                    <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
+                        <i data-feather="eye"></i>
+                      </button>
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                        <i data-feather="heart"></i>
+                      </button>
+                    </div>
+  
+                    <!-- Card Content -->
+                    <div class="p-4">
+                      <a href="product_details.html">
+                        <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
+                        <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                      </a>
+  
+                      <div class="flex justify-between items-center mt-8">
+                        <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                        <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+  
+                <!-- ===== CARD 3 ===== -->
+                <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                  <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                    <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                    <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+  
+                    <!-- Eye -->
+                    <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
+                        <i data-feather="eye"></i>
+                      </button>
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                        <i data-feather="heart"></i>
+                      </button>
+                    </div>
+  
+                    <!-- Card Content -->
+                    <div class="p-4">
+                      <a href="product_details.html">
+                        <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
+                        <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                      </a>
+  
+                      <div class="flex justify-between items-center mt-8">
+                        <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                        <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- ===== CARD 4 ===== -->
+                <div class="flex-shrink-0 w-80 rounded overflow-hidden transform transition duration-500 hover:scale-105">
+                  <div class="relative bg-white shadow-lg rounded-xl overflow-hidden group cursor-pointer">
+                    <img src="img/na1.webp" class="w-full h-72 object-cover transition duration-700 group-hover:opacity-0">
+                    <img src="img/na2.webp" class="w-full h-72 object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
+  
+                    <!-- Eye -->
+                    <div class="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition">
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-gray-200 open-modal" data-target="modal1">
+                        <i data-feather="eye"></i>
+                      </button>
+                      <button class="p-2 bg-white rounded-full shadow hover:bg-red-100">
+                        <i data-feather="heart"></i>
+                      </button>
+                    </div>
+  
+                    <!-- Card Content -->
+                    <div class="p-4">
+                      <a href="product_details.html">
+                        <h3 class="text-lg font-bold text-gray-800 transform transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:animate-bounce-slow group-hover:text-[#008f63]">Premium Shoes</h3>
+                        <p class="text-base text-black-100 my-2 transform transition duration-500 delay-100 group-hover:translate-y-0 group-hover:opacity-100 translate-y-5 opacity-90 ease-out group-hover:text-[#008f63] group-hover:animate-bounce-slow">&#2547; 129.99</p>
+                      </a>
+  
+                      <div class="flex justify-between items-center mt-8">
+                        <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400 transition-transform duration-500 ease-out card-hover-bounce">Add to Cart</button>
+                        <button class="px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A] transition-transform duration-500 ease-out card-hover-bounce">Buy Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+            <!-- Navigation Buttons -->
+            <button id="bsprev" class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">‹
+            </button>
+            <button id="bsnext" class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-10 bg-gray-800 text-white p-2 rounded-full opacity-0 transition-all duration-500">›
+            </button>
+          </div>
+  
+          <!-- ===== MODALS placed outside slider (fixed center) ===== -->
+          <div id="modal1" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+              <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Left -->
+                <div class="flex flex-col md:flex-row">
+  
+                  <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                    <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                    <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                  </div>
+  
+                  <!-- Large Image Container -->
+                  <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                    <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+  
+                    <!-- Lens -->
+                    <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                  </div>
+                </div>
+  
+                <!-- Right -->
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                    <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                    <div class="mb-4 flex items-center space-x-2">
+                      <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                      <div class="w-4 h-4 bg-black rounded-full"></div>
+                    </div>
+                    <!-- Sizes -->
+                    <div class="mb-4">
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                      <div class="flex space-x-2">
+                        <label><input type="radio" name="size1" value="M" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                          </div>
+                        </label>
+                        <label><input type="radio" name="size1" value="L" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                          </div>
+                        </label>
+                        <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                            XL</div>
+                        </label>
+                        <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                            XXL</div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex space-x-3 mt-4 md:mt-0">
+                    <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                    <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                    <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                      <i data-feather="heart"></i>
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- ===== MODALS placed outside slider (fixed center) ===== -->
-        <div id="modal3" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
-          <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
-            <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Left -->
-              <div class="flex flex-col md:flex-row">
-
-                <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
-                  <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                  <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
-                </div>
-
-                <!-- Large Image Container -->
-                <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
-                  <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
-
-                  <!-- Lens -->
-                  <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
-                </div>
-              </div>
-
-              <!-- Right -->
-              <div class="flex flex-col justify-between">
-                <div>
-                  <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
-                  <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
-                  <div class="mb-4 flex items-center space-x-2">
-                    <p class="text-sm font-medium text-gray-700">Color: Black</p>
-                    <div class="w-4 h-4 bg-black rounded-full"></div>
+  
+          <!-- ===== MODALS placed outside slider (fixed center) ===== -->
+          <div id="modal2" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+              <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Left -->
+                <div class="flex flex-col md:flex-row">
+  
+                  <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                    <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                    <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
                   </div>
-                  <!-- Sizes -->
-                  <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
-                    <div class="flex space-x-2">
-                      <label><input type="radio" name="size1" value="M" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
-                        </div>
-                      </label>
-                      <label><input type="radio" name="size1" value="L" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
-                        </div>
-                      </label>
-                      <label><input type="radio" name="size1" value="XL" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                          XL</div>
-                      </label>
-                      <label><input type="radio" name="size1" value="XXL" class="hidden peer">
-                        <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
-                          XXL</div>
-                      </label>
+  
+                  <!-- Large Image Container -->
+                  <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                    <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+  
+                    <!-- Lens -->
+                    <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                  </div>
+                </div>
+  
+                <!-- Right -->
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                    <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                    <div class="mb-4 flex items-center space-x-2">
+                      <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                      <div class="w-4 h-4 bg-black rounded-full"></div>
+                    </div>
+                    <!-- Sizes -->
+                    <div class="mb-4">
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                      <div class="flex space-x-2">
+                        <label><input type="radio" name="size1" value="M" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                          </div>
+                        </label>
+                        <label><input type="radio" name="size1" value="L" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                          </div>
+                        </label>
+                        <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                            XL</div>
+                        </label>
+                        <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                            XXL</div>
+                        </label>
+                      </div>
                     </div>
                   </div>
+                  <div class="flex space-x-3 mt-4 md:mt-0">
+                    <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                    <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                    <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                      <i data-feather="heart"></i>
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
                 </div>
-                <div class="flex space-x-3 mt-4 md:mt-0">
-                  <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
-                  <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
-                  <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
-                    <i data-feather="heart"></i>
-                  </button>
+              </div>
+            </div>
+          </div>
+  
+          <!-- ===== MODALS placed outside slider (fixed center) ===== -->
+          <div id="modal3" class="modal fixed inset-0 bg-black bg-opacity-50 items-center justify-center z-50 p-4">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-4xl p-6 relative overflow-y-auto max-h-[90vh]">
+              <button class="absolute top-4 right-4 text-gray-600 hover:text-black close-modal">✕</button>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Left -->
+                <div class="flex flex-col md:flex-row">
+  
+                  <div class="flex flex-row md:flex-col space-x-2 md:space-x-0 md:space-y-2 mr-0 md:mr-4 mb-4 md:mb-0">
+                    <img src="img/na1.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                    <img src="img/na2.webp" class="w-16 h-16 object-cover border rounded cursor-pointer modal-thumb">
+                  </div>
+  
+                  <!-- Large Image Container -->
+                  <div class="relative overflow-hidden w-full max-w-md mx-auto zoom-container">
+                    <img src="img/na1.webp" class="w-full h-80 object-cover main-img large-image">
+  
+                    <!-- Lens -->
+                    <div class="lens absolute w-32 h-32 rounded-full border-2 border-gray-400 pointer-events-none hidden bg-no-repeat bg-cover"></div>
+                  </div>
                 </div>
-                <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+  
+                <!-- Right -->
+                <div class="flex flex-col justify-between">
+                  <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Premium Shoes</h2>
+                    <p class="text-base text-[#00AE7A] mb-4">&#2547; 129.99</p>
+                    <div class="mb-4 flex items-center space-x-2">
+                      <p class="text-sm font-medium text-gray-700">Color: Black</p>
+                      <div class="w-4 h-4 bg-black rounded-full"></div>
+                    </div>
+                    <!-- Sizes -->
+                    <div class="mb-4">
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Size:</label>
+                      <div class="flex space-x-2">
+                        <label><input type="radio" name="size1" value="M" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">M
+                          </div>
+                        </label>
+                        <label><input type="radio" name="size1" value="L" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">L
+                          </div>
+                        </label>
+                        <label><input type="radio" name="size1" value="XL" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                            XL</div>
+                        </label>
+                        <label><input type="radio" name="size1" value="XXL" class="hidden peer">
+                          <div class="px-4 py-2 border rounded cursor-pointer peer-checked:bg-black peer-checked:text-white">
+                            XXL</div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flex space-x-3 mt-4 md:mt-0">
+                    <button class="flex-1 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-400">Add to Cart</button>
+                    <button class="flex-1 px-4 py-2 bg-[#008f63] text-white rounded hover:bg-[#00AE7A]">Buy Now</button>
+                    <button class="px-4 py-2 bg-red-100 text-red-500 rounded hover:bg-red-200">
+                      <i data-feather="heart"></i>
+                    </button>
+                  </div>
+                  <p class="text-sm text-gray-500 mt-4">Categories: Shoes, Fashion, Men, Lifestyle</p>
+                </div>
               </div>
             </div>
           </div>
@@ -1521,12 +1581,12 @@
   </div>
 
   <!-- Cart Sidebar -->
-  <div id="cartSidebar" class="fixed top-0 right-0 h-full w-100% sm:w-80 bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#000000] text-gray-300 shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
+  <div id="cartSidebar" class="fixed top-0 right-0 h-full w-100% sm:w-80 bg-gradient-to-t from-gray-100 via-gray-200 to-gray-300 shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col px-5">
     
     <!-- Header -->
     <div class="p-4 border-b flex justify-between items-center">
       <h2 class="text-lg font-semibold">Shoping Cart</h2>
-      <button id="closeCart" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+      <button id="closeCart" class="text-gray-900 hover:text-gray-800 text-3xl hover:font-bold">&times;</button>
     </div>
 
     <div class="max-h-96 overflow-y-auto space-y-2 pr-2">
@@ -1556,7 +1616,7 @@
           </div>
         </div>
   
-        <!-- Right: Cross Button -->
+        <!-- Right: Delete Button -->
         <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 transform hover:scale-110 transitionduration-300">
           <i class="fa-solid fa-xmark text-sm"></i>
         </button>
@@ -1668,12 +1728,17 @@
         <span class="font-semibold">Sub Total</span>
         <span class="font-semibold">&#2547; 120</span>
       </div>
-      <button class="w-full bg-[#293d44] border border-white text-white py-2 px-2 rounded-lg hover:bg-[#0f2027] mt-3 mb-3 transform hover:scale-105 hover:shadow-xl transition duration-500 ease-in-out">
-        View your Cart
-      </button>
-      <button class="w-full bg-[#067c59] border border-white text-white py-2 px-2 rounded-lg hover:bg-[#00AE7A] transform hover:scale-105 hover:shadow-xl transition duration-500 ease-in-out">
-        Proceed to Checkout
-      </button>
+      <a href="cart.html">
+        <button class="w-full bg-[#293d44] border border-white text-white py-2 px-2 rounded-lg hover:bg-[#0f2027] mt-3 mb-3 transform hover:scale-105 hover:shadow-xl transition duration-500 ease-in-out">
+          View your Cart
+        </button>
+      </a>
+
+      <a href="checkout.html">
+        <button class="w-full bg-[#067c59] border border-white text-white py-2 px-2 rounded-lg hover:bg-[#00AE7A] transform hover:scale-105 hover:shadow-xl transition duration-500 ease-in-out">
+          Proceed to Checkout
+        </button>
+      </a>
     </div>
   </div>
 
@@ -1779,7 +1844,8 @@
 
   <!-- My JS -->
   <script src="js/script.js"></script>
-
+  <script src="js/profile.js"></script>
+  <script src="js/login_reg.js"></script>
 </body>
 
 </html>
